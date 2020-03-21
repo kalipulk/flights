@@ -4,7 +4,10 @@ const flightController = require("../../controllers/flightsController");
 // Matches with "/api/google"
 router
   .route("/")
-  .get(flightController.findFlights)
+  
   .post(flightController.addFlights);
+  router
+  .route("/:id")
+  .get(flightController.findFlights)
 
 module.exports = router;

@@ -3,13 +3,16 @@ const router = require("express").Router();
 const userRoutes = require("./users");
 const flightRoutes = require("./flights");
 const packingListRoutes= require("./packingList");
+const loginRoute = require("./login")
 
-// Book routes
+
 router.use("/users", userRoutes);
 
 router.use("/flights", flightRoutes);
 
-router.use("/packingList", flightRoutes);
+router.use("/packingList", packingListRoutes);
+
+router.use("/login", loginRoute);
 
 // For anything else, render the html page
 router.use(function(req, res) {

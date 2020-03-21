@@ -2,9 +2,15 @@ var express = require("express");
 var session = require("express-session");
 var passport = require("./config/passport");
 const routes = require("./routes");
+var bodyParser = require('body-parser');
 // Sets up the Express App
 // =============================================================
 var app = express();
+
+app.use(bodyParser.urlencoded({ extended: true })); app.use(bodyParser.json())
+app.use(bodyParser.json(), function (req, res, next) {
+    next();
+});
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -21,9 +27,12 @@ if (process.env.NODE_ENV === "production") {
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-
+// app.use(function (req, res, next) {
+//   console.log(req.body)
+// })
 // Add routes, both API and view
 app.use(routes);
+// routes.initialize(app);
 
 // Connect to the Mongo DB
 db.sequelize.sync({ force: false }).then(function() {
