@@ -1,10 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
     var Flight = sequelize.define("Flight", {
-        to: {
+        arrival: {
             type: DataTypes.STRING,
             unique: true
         },
-        from: {
+        departure: {
             type: DataTypes.STRING,
             unique: true
         },
