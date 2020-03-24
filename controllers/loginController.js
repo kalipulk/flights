@@ -4,8 +4,9 @@ var bcrypt = require("bcryptjs");
 
 module.exports ={
     login: function(req,res){
-        passport.authenticate("local"), function(req, res) {
-            res.json(req.user);
-          };
+        // console.log("test");
+        // passport.authenticate("local"), function(req, res) {
+        //     res.json(req.user);
+        //   };
     }
 }

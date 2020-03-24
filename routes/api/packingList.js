@@ -6,8 +6,9 @@ router
   .route("/")
  
   .post(packingListController.addList)
-  .post(packingListController.deleteList);
+  
 router
   .route("/:id")
-  .get(packingListController.findList)
+  .post(packingListController.deleteList)
+  .get(packingListController.findList);
 module.exports = router;

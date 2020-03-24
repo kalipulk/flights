@@ -17,8 +17,27 @@ module.exports ={
             res.json(response);
         });
     
+},
+deleteFlights: function(req,res){
+    var id = req.params.id;
+    db.Flight.destroy({
+        where: { id: id },
+    }).then(function(response) {
+        res.json(response);
+    });
+
+},
+updateFlight: function(req,res){
+   const id =req.body.id
+   console.log(req.body);
+    db.Flight.update({
+        price:req.body.price
+    },
+    {
+        where:{id: id}
+    }).then(function(response){
+        console.log("price changed")
+        res.json(response);
+    });
 }
-    // app.put("/api/update", function(req, res) {  
-    //     db.Flight
-    // });
 }

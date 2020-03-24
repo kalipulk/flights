@@ -31,6 +31,7 @@ app.use(passport.session());
 //   console.log(req.body)
 // })
 // Add routes, both API and view
+
 app.use(routes);
 // routes.initialize(app);
 
