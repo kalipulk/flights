@@ -1,14 +1,15 @@
 const router = require("express").Router();
 const packingListController = require("../../controllers/packingListController");
 
-// Matches with "/api/google"
+
 router
   .route("/")
- 
-  .post(packingListController.addList)
+  .put(packingListController.updateList)
+  .post(packingListController.addList);
   
 router
   .route("/:id")
   .post(packingListController.deleteList)
+  // .post(packingListController.deleteItem)
   .get(packingListController.findList);
 module.exports = router;
