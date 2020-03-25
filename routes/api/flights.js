@@ -5,7 +5,7 @@ const flightController = require("../../controllers/flightsController");
 router
   .route("/")
   .put(flightController.updateFlight)
-  .post(flightController.addFlights);
+  .post(flightController.addFlight);
   router
   .route("/:id")
   .get(flightController.findFlights)

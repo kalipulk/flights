@@ -22,11 +22,33 @@ findList: function(req,res){
     deleteList: function(req,res){
         var id = req.params.id;
         db.PackingList.destroy({
-            where: { id: id },
+            where: { Flightid: id },
         }).then(function(response) {
             res.json(response);
         });
     
-}
+},
+    // deleteItem: function(req,res){
+    //     var id = req.params.id;
+    //     db.PackingList.destroy({
+    //         where: {id: id}
+    //     }).then(function(response){
+    //         console.log("item deleted");
+    //         res.json(response);
+    //     })
+    // },
+    updateList:function (req,res){
+        var id = req.body.id
+       
+        db.PackingList.update({
+            items: req.body.item
+        },{
+            where:{id: id}
+        }).then(function(response){
+            console.log("item updated");
+            res.json(response);
+           
+        })
+    }
    
 }

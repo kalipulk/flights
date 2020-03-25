@@ -2,7 +2,7 @@ const db = require("../models");
 
 module.exports ={
 
-    addFlights: function(req,res){
+    addFlight: function(req,res){
             db.Flight.create(req.body).then(function(flight) {
             res.json(flight);
         });
