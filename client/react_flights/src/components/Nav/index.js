@@ -52,16 +52,16 @@ class Nav extends Component {
                 <Link
                   onClick={this.toggleNav}
                   className={window.location.pathname === "/signup" ? "nav-link active" : "nav-link"}
-                  to="/"
+                  to="/signup"
                 >
-                  Search
+                  Sign Up
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
                   onClick={this.toggleNav}
                   className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
-                  to="/"
+                  to="/search"
                 >
                   Search
                 </Link>
@@ -70,9 +70,9 @@ class Nav extends Component {
                 <Link
                   onClick={this.toggleNav}
                   className={window.location.pathname === "/profile" ? "nav-link active" : "nav-link"}
-                  to="/saved"
+                  to="/profile"
                 >
-                  profile
+                  Profile
                 </Link>
               </li>
             </ul>
