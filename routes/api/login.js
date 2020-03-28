@@ -5,6 +5,7 @@ var bcrypt = require("bcryptjs");
 
 router.route("/")
   .post(passport.authenticate("local"), function(req, res) {
+    console.log(req);
     res.json(req.user);
   },loginController.login)
 
