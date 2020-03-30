@@ -1,13 +1,11 @@
 import React from "react";
 import "./style.css";
 
-function Jumbotron({ children }) {
+function Jumbotron() {
   return (
-    <div
-      style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
-      className="jumbotron"
-    > 
-      {children}
+    <div className="jumbotron">
+      <div className="jumboImg"></div> 
+      <div>App Name</div> 
     </div>
   );
 }
