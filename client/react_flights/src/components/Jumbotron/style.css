@@ -1,4 +1,17 @@
 .jumbotron {
-    background-image: url("https://www.kissclipart.com/transparent-background-torn-paper-png-clipart-pape-z0dt7m/download-clipart.html"),
-    linear-gradient(#006372, #007e6e,#00a16c,#00bf6d,#00d871)
+    background-image: linear-gradient(#006372, #007e6e,#00a16c,#00bf6d,#00d871);
+    text-align: center;
+    height: 400px;
+    clear: both;
+    margin: auto;
+    color: #fff;
+    font-family: 'Sigmar One', cursive;
+    font-size: 60px;
 }
+
+.jumboImg {
+    background-image: url("https://library.kissclipart.com/20181216/pqe/kissclipart-transparent-background-torn-paper-png-clipart-pape-034bb0b1001cf11f.png");
+    z-index: 1;
+}
+
+

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 class Nav extends Component {
     state = {
@@ -31,24 +32,24 @@ class Nav extends Component {
   
     render() {
       return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2">
-          <Link className="navbar-brand" to="/">
-            Login
+        <nav className="navbarMan">
+          <Link className="navbarBrand" to="/">
           </Link>
           <button
             onClick={this.toggleNav}
-            className="navbar-toggler"
+            className="navbarToggler"
             data-toggle="collapse"
             data-target="#navbarNav"
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon" />
+            <i class="fas fa-chevron-down"></i>
+            <span className="navbarTogglerIcon" /> 
           </button>
           <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
-            <ul className="navbar-nav">
-            <li className="nav-item">
+            <ul className="navbarNav">
+            <li className="navItem">
                 <Link
                   onClick={this.toggleNav}
                   className={window.location.pathname === "/signup" ? "nav-link active" : "nav-link"}
@@ -57,7 +58,7 @@ class Nav extends Component {
                   Sign Up
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="navItem">
                 <Link
                   onClick={this.toggleNav}
                   className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
@@ -66,7 +67,7 @@ class Nav extends Component {
                   Search
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="navItem">
                 <Link
                   onClick={this.toggleNav}
                   className={window.location.pathname === "/profile" ? "nav-link active" : "nav-link"}
