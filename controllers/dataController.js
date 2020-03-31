@@ -1,10 +1,10 @@
 const db = require("../models");
 
 module.exports ={
-    roundTrip: function(arrivalAirport,departureAirport,departureDate,arrivalDate){
+    roundTrip: function(arrivalCity,departureCity,departureDate,arrivalDate){
         db.Data.findAll({
-            where: {departureAirport:departureAirport,
-                    arrivalAirport:arrivalAirport,
+            where: {departureCity:departureCity,
+                    arrivalCity:arrivalCity,
                     arrivalDate:arrivalDate,
                     departureDate:departureDate}
         });

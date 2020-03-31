@@ -1,5 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
     var Data = sequelize.define("Data", {
+    departureCity: {
+        type: DataTypes.STRING
+    },
+    arrivalCity:{
+        type: DataTypes.STRING
+    },
+
      departureAirport:{
         type: DataTypes.STRING
      },
@@ -15,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
       departureDate:{
         type: DataTypes.STRING
       }, 
-      arrivalDate:{
+      returnDate:{
         type: DataTypes.STRING
       }, 
       price:{
@@ -24,15 +31,11 @@ module.exports = function(sequelize, DataTypes) {
       returnDepartureTime:{
         type: DataTypes.STRING
       }, 
-      returnDepartureDate:{
-        type: DataTypes.STRING
-      }, 
+      
       returnArrivalTime:{
         type: DataTypes.STRING
       }, 
-      returnArrivalDate:{
-        type: DataTypes.STRING
-      }, 
+      
       class:{
         type: DataTypes.STRING
       }, 
@@ -43,10 +46,10 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.INTEGER
       }, 
       gate:{
-        type: DataTypes.STRING
+        type: DataTypes.INTEGER
       }, 
       totalFlightTime:{
-        type: DataTypes.INTEGER
+        type: DataTypes.STRING
       }
     });
     return Data;
