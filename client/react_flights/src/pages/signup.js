@@ -14,7 +14,7 @@ class Signup extends Component {
 
     };
 
-    redirect(){
+    redirect() {
         this.setState({ changePage:"/profile" })
     }
 
