@@ -1,13 +1,15 @@
 const db = require("../models");
 
 module.exports ={
-    roundTrip: function(arrivalCity,departureCity,departureDate,arrivalDate){
+    roundTrip: function(req,res){
         console.log("test");
         db.Data.findAll({
-            where: {departureCity:departureCity,
-                    arrivalCity:arrivalCity,
-                    arrivalDate:arrivalDate,
-                    departureDate:departureDate}
+            where: {departureCity:req.params.departureCity,
+                    arrivalCity:req.params.arrivalCity,
+                    departureDate:req.params.departureDate,
+                    returnDate:req.params.returnDate}
+        }).then(function(response){
+            res.json(response);
         });
     }
 }

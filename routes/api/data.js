@@ -2,7 +2,7 @@ const router = require("express").Router();
 const dataController = require("../../controllers/dataController");
 
 router
-  .route("/:arrivalCity/:departureCity/:departureDate/:arrivalDate")
+  .route("/:departureCity/:arrivalCity/:departureDate/:returnDate")
   .get(dataController.roundTrip);
 
   module.exports = router;
