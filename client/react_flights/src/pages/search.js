@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import API from "../utils/API";
+import { set } from "date-fns";
 
 
 class Search extends Component {
@@ -15,7 +16,8 @@ class Search extends Component {
         departureDate: new Date(),
         returnDate: new Date(),
         convDepartureDate: "",
-        convReturnDate: ""
+        convReturnDate: "",
+        searchList:[]
     }
 
     handleDepartureDateChange = date => {
@@ -46,7 +48,9 @@ class Search extends Component {
         console.log(this.state.departure, this.state.destination, this.state.convDepartureDate, this.state.convReturnDate)
         API.flightSearch(this.state.departure, this.state.destination,this.state.convDepartureDate,this.state.convReturnDate).
         then(response => {
-            console.log(response)
+            // console.log(response.data[0]);
+            this.setState({searchList:response.data[0]});
+            console.log(this.state.searchList);
         })
     };
     
