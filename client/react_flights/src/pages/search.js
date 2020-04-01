@@ -4,6 +4,7 @@ import Jumbotron from "../components/Jumbotron";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
+import API from "../utils/API";
 
 
 class Search extends Component {
@@ -43,6 +44,10 @@ class Search extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         console.log(this.state.departure, this.state.destination, this.state.convDepartureDate, this.state.convReturnDate)
+        API.flightSearch(this.state.departure, this.state.destination,this.state.convDepartureDate,this.state.convReturnDate).
+        then(response => {
+            console.log(response)
+        })
     };
     
     render(){
