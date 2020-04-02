@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
+import SearchResults from "../components/SearchResults";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
@@ -17,7 +18,8 @@ class Search extends Component {
         returnDate: new Date(),
         convDepartureDate: "",
         convReturnDate: "",
-        searchList:[]
+        searchList:[],
+        searchDone:false
     }
 
     handleDepartureDateChange = date => {
@@ -45,21 +47,51 @@ class Search extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log(this.state.departure, this.state.destination, this.state.convDepartureDate, this.state.convReturnDate)
+        console.log(this.state.searchDone);
         API.flightSearch(this.state.departure, this.state.destination,this.state.convDepartureDate,this.state.convReturnDate).
         then(response => {
-            // console.log(response.data[0]);
-            this.setState({searchList:response.data[0]});
-            console.log(this.state.searchList);
+           
+            this.setState({searchList:[response.data[0]]});
+            this.setState({searchDone:true});
+            // console.log(this.state.searchList);
         })
     };
     
     render(){
+        // console.log(this.state.searchList)
         return(
+            
         <div>
             <Jumbotron></Jumbotron>
             <Nav></Nav>
-            <form>
+            {this.state.searchDone?
+            
+            this.state.searchList.map(search =>{
+                // console.log(search);
+                return (
+                <SearchResults 
+                    id={search.id}
+                    departureCity={search.departureCity}
+                    arrivalCity = {search.arrivalCity}
+                    departureAirport = {search.departureAirport}
+                    arrivalAirport= {search.arrivalAirport}
+                    arrivalTime={search.arrivalTime}
+                    departureTime={search.departureTime}
+                    departureDate={search.departureDate}
+                    returnDate={search.returnDate}
+                    price= {search.price}
+                    returnDepartureTime= {search.returnDepartureTime}
+                    returnArrivalTime={search.returnArrivalTime}
+                    class= {search.class}
+                    airline={search.airline}
+                    stops={search.stops}
+                    gate = {search.gate}
+                    flightTime={search.totalFlightTime}
+                    >
+                </SearchResults>
+                
+            )})
+                :<form>
                 <div className="form-group">
                     <p>Departing From:</p>
                     <input
@@ -111,6 +143,8 @@ class Search extends Component {
                     </button>
                 </div>
             </form>
+            
+            }
           </div>
           )
       }
