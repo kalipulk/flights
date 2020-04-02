@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import API from "../utils/API";
 import { set } from "date-fns";
+import { da } from "date-fns/locale";
 
 
 class Search extends Component {
@@ -44,21 +45,68 @@ class Search extends Component {
           [name]: value
         });
     };
+    buyFlights = (data) =>{
+        
+        const purchasedFlights = {
+            arrivalCity: data.arrivalCity,
+            departureCity: data.departureCity,
+            arrivalAirport:data.arrivalAirport,
+            departureAirport:data.departureAirport,
+            price: data.price,
+            purchased:true,
+            departureDate:data.departureDate,
+            arrivalDate: data.arrivalDate,
+            departureTime: data.departureTime,
+            returnDepartureTime:data.returnDepartureTime,
+            returnDepartureDate: data.returnDate,
+            UserId: JSON.parse(localStorage.getItem("id"))
 
+        }
+        // console.log(purchasedFlights);
+        API.buyFLight(purchasedFlights).then(response=>{
+           this.setState({searchDone:false});
+           console.log(response);
+        })
+    }
+    wishList = (data) =>{
+        
+        const wishListFlights = {
+            arrivalCity: data.arrivalCity,
+            departureCity: data.departureCity,
+            arrivalAirport:data.arrivalAirport,
+            departureAirport:data.departureAirport,
+            price: data.price,
+            purchased:false,
+            departureDate:data.departureDate,
+            arrivalDate: data.arrivalDate,
+            departureTime: data.departureTime,
+            returnDepartureTime:data.returnDepartureTime,
+            returnDepartureDate: data.returnDate,
+            UserId: JSON.parse(localStorage.getItem("id"))
+
+        }
+        // console.log(purchasedFlights);
+        API.buyFLight(wishListFlights).then(response=>{
+           this.setState({searchDone:false});
+           
+        })
+    }
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log(this.state.searchDone);
-        API.flightSearch(this.state.departure, this.state.destination,this.state.convDepartureDate,this.state.convReturnDate).
+       const departure = this.state.departure.replace(/ /g,"_");
+       const destination = this.state.destination.replace(/ /g,"_");
+       console.log(departure +" "+ destination); 
+        API.flightSearch(departure, destination,this.state.convDepartureDate,this.state.convReturnDate).
         then(response => {
            
             this.setState({searchList:[response.data[0]]});
             this.setState({searchDone:true});
-            // console.log(this.state.searchList);
+            console.log(this.state.searchList);
         })
     };
     
     render(){
-        // console.log(this.state.searchList)
+       
         return(
             
         <div>
@@ -70,7 +118,11 @@ class Search extends Component {
                 // console.log(search);
                 return (
                 <SearchResults 
-                    id={search.id}
+                    
+                    key={search.id}
+                    purchaseFlight={this.buyFlights}
+                    wishList={this.wishList}
+                    allData={search}
                     departureCity={search.departureCity}
                     arrivalCity = {search.arrivalCity}
                     departureAirport = {search.departureAirport}
