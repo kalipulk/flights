@@ -32,6 +32,10 @@ class App extends React.Component {
       
     }
   }
+  logout = ()=>{
+    localStorage.clear();
+    this.setState({login: false});
+  }
   componentDidMount = ()=>{
     this.loginCheck();
   }
@@ -72,16 +76,46 @@ class App extends React.Component {
               </div>
           </div>
 
-
+        {this.state.login?
+        <div id='right' className={rightOpen} >
+        <div className='icon'
+             onClick={this.toggleSidebar} >
+             &equiv;
+        </div>
+        
+        <div className={`sidebar ${rightOpen}`} >
+            <div className='header'>
+              <h3 className='title'>
+                Logged In Header
+              </h3>
+            </div>
+            <div className='content'>
+                <h3>Right content</h3><br/>
+                <button onClick ={()=>this.logout()}>LogOut</button> 
+                {/* {this.state.checkout.map((flight)=>{
+             return(
+               <div>
+                 <h1>{flight}</h1>
+                 <span className="delete-btn" role="button" tabIndex="0" onClick={()=>{this.removeFromList(flight)}}>x</span>
+                </div>
+             )
+           })} */}
+          </div>
+    </div>
+    
+  
+  </div>
+        :
         <div id='right' className={rightOpen} >
               <div className='icon'
                    onClick={this.toggleSidebar} >
                    &equiv;
               </div>
+              
               <div className={`sidebar ${rightOpen}`} >
                   <div className='header'>
                     <h3 className='title'>
-                      Right header
+                     Logged Out header
                     </h3>
                   </div>
                   <div className='content'>
@@ -96,8 +130,10 @@ class App extends React.Component {
                  })} */}
                 </div>
           </div>
+          
         
         </div>
+        }
       </div>
     </Router>
   );
