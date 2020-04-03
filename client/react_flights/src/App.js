@@ -16,6 +16,7 @@ class App extends React.Component {
     this.state = {
       rightOpen: true,
       leftOpen: true,
+      login: false
     }
   }
 
@@ -23,7 +24,20 @@ class App extends React.Component {
     let key = `${event.currentTarget.parentNode.id}Open`;
     this.setState({ [key]: !this.state[key] });
   }
-
+  loginCheck = ()=>{
+    console.log(this.state.login);
+    if(localStorage.getItem("id")!== null && this.state.login === false){
+      console.log(this.state.login)
+     return this.setState({login:true})
+      
+    }
+  }
+  componentDidMount = ()=>{
+    this.loginCheck();
+  }
+  componentDidUpdate = ()=>{
+    this.loginCheck();
+  }
   
   render() {
     let leftOpen = this.state.leftOpen ? 'open' : 'closed';

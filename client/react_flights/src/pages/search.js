@@ -65,7 +65,7 @@ class Search extends Component {
         // console.log(purchasedFlights);
         API.buyFLight(purchasedFlights).then(response=>{
            this.setState({searchDone:false});
-           console.log(response);
+        //    console.log(response);
         })
     }
     wishList = (data) =>{
@@ -95,13 +95,13 @@ class Search extends Component {
         event.preventDefault();
        const departure = this.state.departure.replace(/ /g,"_");
        const destination = this.state.destination.replace(/ /g,"_");
-       console.log(departure +" "+ destination); 
+    //    console.log(departure +" "+ destination); 
         API.flightSearch(departure, destination,this.state.convDepartureDate,this.state.convReturnDate).
         then(response => {
            
             this.setState({searchList:[response.data[0]]});
             this.setState({searchDone:true});
-            console.log(this.state.searchList);
+            // console.log(this.state.searchList);
         })
     };
     
