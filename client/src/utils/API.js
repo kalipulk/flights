@@ -1,7 +1,19 @@
 import axios from "axios"
+import sendmail from'sendmail'
 import { func } from "prop-types";
 
 export default {
+    email: function(req,res){
+        console.log(req.body)
+        axios.post("/api/email",req.body).then(response =>{
+            return res.json(response)
+        })
+      
+        // sendmail({
+        //     from:"flyingTime@test.com",
+
+        // })
+    },
     login: function(loginInfo){
 
        return axios.post("/api/login", loginInfo);

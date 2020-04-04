@@ -88,9 +88,7 @@ class App extends React.Component {
   render() {
     let leftOpen = this.state.leftOpen ? 'open' : 'closed';
     let rightOpen = this.state.rightOpen ? 'open' : 'closed';
-    // if (this.state.backToLogin) {
-    //   return <Redirect to={this.state.backToLogin} />
-    // }
+  
   
     return (
     <Router>
