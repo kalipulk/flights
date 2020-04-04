@@ -37,50 +37,44 @@ class App extends React.Component {
         </div>
         
         <div id='main'>
-              <div className='header'>
-                  <h3 className={`
-                      title
-                      ${'left-' + leftOpen}
-                      ${'right-' + rightOpen}
-                  `}>
-                      Main header
-                  </h3>
-              </div>
-              <div className='content'>
-                  <h3>Main content</h3><br/>
-                  <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path ="/search"component={Search} />
-          <Route exact path ="/profile"component={Profile} />
-          <Route exact path ="/sidebar"component={SideBar} />
-        </Switch>
-              </div>
+          <div className='header'>
+            <h3 className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}>
+              SEARCH FUNCTION GOES HERE 
+            </h3>
           </div>
-
+          <div className='content'>
+            <h3>SEARCH RESULTS DISPLAY HERE</h3><br/>
+              <Switch>
+                <Route exact path="/" component={Login} />
+                <Route exact path="/signup" component={SignUp} />
+                <Route exact path ="/search"component={Search} />
+                <Route exact path ="/profile"component={Profile} />
+                <Route exact path ="/sidebar"component={SideBar} />
+              </Switch>
+          </div>
+        </div>
 
         <div id='right' className={rightOpen} >
-              <div className='icon'
-                   onClick={this.toggleSidebar} >
-                   &equiv;
-              </div>
-              <div className={`sidebar ${rightOpen}`} >
-                  <div className='header'>
-                    <h3 className='title'>
-                      Right header
-                    </h3>
+          <div className='icon'onClick={this.toggleSidebar} >
+            &equiv;
+          </div>
+          <div className={`sidebar ${rightOpen}`} >
+            <div className='header'>
+              <h3 className='title'>
+                Right header
+              </h3>
+            </div>
+            <div className='content'>
+              <h3>Right content</h3><br/>
+                {/* {this.state.checkout.map((flight)=>{
+                return(
+                  <div>
+                  <h1>{flight}</h1>
+                  <span className="delete-btn" role="button" tabIndex="0" onClick={()=>{this.removeFromList(flight)}}>x</span>
                   </div>
-                  <div className='content'>
-                      <h3>Right content</h3><br/>
-                      {/* {this.state.checkout.map((flight)=>{
-                   return(
-                     <div>
-                       <h1>{flight}</h1>
-                       <span className="delete-btn" role="button" tabIndex="0" onClick={()=>{this.removeFromList(flight)}}>x</span>
-                      </div>
-                   )
-                 })} */}
-                </div>
+                )
+                })} */}
+            </div>
           </div>
         
         </div>
