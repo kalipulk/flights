@@ -71,7 +71,7 @@ class Search extends Component {
         // console.log(purchasedFlights);
         API.buyFLight(purchasedFlights).then(response=>{
            this.setState({searchDone:false});
-        //    console.log(response.data.arrivalCity);
+        
            emailData.arrivalCity=response.data.arrivalCity;
            emailData.departureCity=response.data.departureCity;
            emailData.arrivalAirport=response.data.arrivalAirport;
@@ -79,7 +79,7 @@ class Search extends Component {
            emailData.price=response.data.price;
            emailData.departureDate=response.data.departureDate;
            emailData.departureTime=response.data.departureTime;
-        //    console.log(emailData);
+        
            this.email(emailData);
         }).then(API.getEmailAddress(JSON.parse(localStorage.getItem("id"))).then(response=>{
             
