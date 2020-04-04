@@ -94,8 +94,7 @@ class App extends React.Component {
   
     return (
     <Router>
-      {this.state.backToLogin? <Redirect to={this.state.backToLogin} />
-      :
+     
       <div id='layout'>
         <div>
           <Nav />
@@ -122,6 +121,7 @@ class App extends React.Component {
         </Switch>
               </div>
           </div>
+        {this.state.backToLogin? <Redirect to={this.state.backToLogin}/>:console.log("place holder")}
         
         {this.state.login?
         <div id='right' className={rightOpen} >
@@ -203,8 +203,9 @@ class App extends React.Component {
         
         </div>
         }
+        
       </div>
-      }
+        
     </Router>
   );
 }
