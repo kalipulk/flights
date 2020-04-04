@@ -35,7 +35,7 @@ class Login extends Component {
         }else{
           
         API.login(credentials).then(response =>{
-          
+            localStorage.clear();
             localStorage.setItem("id", response.data.id);
             this.redirect();
         })}
