@@ -11,8 +11,9 @@ module.exports ={
 findList: function(req,res){
     var id = req.params.id;
     console.log(id);
-    db.PackingList.findAll({
-        where: { FlightId: id }
+    db.Flight.findAll({
+        where: { id: id },
+        include: [db.PackingList]
     }).then(function(response) {
         res.json(response);
        

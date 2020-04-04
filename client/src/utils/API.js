@@ -30,6 +30,9 @@ export default {
     getMyFlights: function(id) {
 
         return axios.get("api/flights/" + id);
+    },
+    getMyList: function(id){
+        return axios.get("api/packingList/"+id);
     }
 
 }
