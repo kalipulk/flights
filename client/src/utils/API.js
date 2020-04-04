@@ -33,6 +33,9 @@ export default {
     },
     getMyList: function(id){
         return axios.get("api/packingList/"+id);
+    },
+    removeFromList: function(id){
+        return axios.delete("api/packingList/"+id)
     }
 
 }

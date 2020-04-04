@@ -10,6 +10,6 @@ router
 router
   .route("/:id")
   .post(packingListController.deleteList)
-  // .post(packingListController.deleteItem)
+  .delete(packingListController.deleteItem)
   .get(packingListController.findList);
 module.exports = router;

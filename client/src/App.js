@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-dom";
 import Login from "./pages/login";
 import SignUp from "./pages/signup";
 import Search from "./pages/search";
@@ -18,13 +18,19 @@ class App extends React.Component {
       rightOpen: true,
       leftOpen: true,
       login: false,
-      userFlights: []
+      userFlights: [],
+      backToLogin:null
     }
   }
 
   toggleSidebar = (event) => {
     let key = `${event.currentTarget.parentNode.id}Open`;
     this.setState({ [key]: !this.state[key] });
+  }
+  redirect=()=>{
+    console.log("test");
+    this.setState({backToLogin:"/search"})
+    console.log(this.state.backToLogin);
   }
   loginCheck = ()=>{
     // console.log(this.state.login);
@@ -37,14 +43,13 @@ class App extends React.Component {
   }
   logout = ()=>{
     localStorage.clear();
+    this.redirect();
     this.setState({login: false});
+    
   }
   flights =(id)=>{
     const usersFlightArray = []
     API.getMyFlights(id).then((response)=>{
-     
-     
-      
       for(let i = 0;i <response.data[0].Flights.length;i++){
         
         if(response.data[0].Flights[i].purchased){
@@ -64,6 +69,13 @@ class App extends React.Component {
     
     })
   }
+  deleteFromList = id =>{
+    console.log(id);
+    API.removeFromList(id).then(response =>{
+      console.log("item deleted");
+      window.location.reload(false);
+    })
+  }
   componentDidMount = ()=>{
     this.loginCheck();
     
@@ -76,10 +88,14 @@ class App extends React.Component {
   render() {
     let leftOpen = this.state.leftOpen ? 'open' : 'closed';
     let rightOpen = this.state.rightOpen ? 'open' : 'closed';
-    
+    // if (this.state.backToLogin) {
+    //   return <Redirect to={this.state.backToLogin} />
+    // }
   
     return (
     <Router>
+      {this.state.backToLogin? <Redirect to={this.state.backToLogin} />
+      :
       <div id='layout'>
         <div>
           <Nav />
@@ -129,7 +145,15 @@ class App extends React.Component {
                     return (
                       <div>
                         <h6 key={flight[0].id}>{flight[0].arrivalCity.replace(/_/g," ")} to {flight[0].departureCity.replace(/_/g," ")}</h6>
-                          {flight[0].PackingLists.length>0?<p>{flight[0].PackingLists[0].items}</p>:<p>No Packing Items Added</p>}
+                          {flight[0].PackingLists.length>0?
+                          flight[0].PackingLists.map(item =>{
+                            // console.log(item);
+                            return (
+                              <div>
+                              <p>{item.items}</p> <button onClick={()=>this.deleteFromList(item.id)}>remove</button>
+                              </div>
+                            )
+                          }):<p>No Packing Items Added</p>}
                       </div>
                     )
 
@@ -180,6 +204,7 @@ class App extends React.Component {
         </div>
         }
       </div>
+      }
     </Router>
   );
 }
