@@ -16,5 +16,14 @@ module.exports ={
                 return res.status(401).json(err);
             });
     
+    },
+    findEmailById: function(req, res) {
+        console.log("hello");
+        var id = req.params.id;
+        db.User.findOne({
+            where: { id: req.params.id },
+        }).then(function(response) {
+            res.json(response);
+        });
     }
  }
