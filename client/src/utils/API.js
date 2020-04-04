@@ -19,10 +19,12 @@ export default {
         return axios.post("/api/users", userInfo)
     },
     flightSearch: function(departureCity,arrivalCity,departureDate,returnDate){
+        
         return axios.get("/api/data/"+departureCity+"/" +arrivalCity+"/" +departureDate+ "/"+returnDate);
 
     },
     buyFLight: function(data){
+
         return axios.post("/api/flights", data);
     },
     getMyFlights: function(id) {
