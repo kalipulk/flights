@@ -29,7 +29,7 @@ class App extends React.Component {
   }
   redirect=()=>{
     console.log("test");
-    this.setState({backToLogin:"/search"})
+    this.setState({backToLogin:"/"})
     console.log(this.state.backToLogin);
   }
   loginCheck = ()=>{
@@ -122,7 +122,7 @@ class App extends React.Component {
         </Switch>
               </div>
           </div>
-
+        
         {this.state.login?
         <div id='right' className={rightOpen} >
         <div className='icon'
@@ -150,7 +150,7 @@ class App extends React.Component {
                             // console.log(item);
                             return (
                               <div>
-                              <p>{item.items}</p> <button onClick={()=>this.deleteFromList(item.id)}>remove</button>
+                              <p key={item.id}>{item.items}</p> <button onClick={()=>this.deleteFromList(item.id)}>remove</button>
                               </div>
                             )
                           }):<p>No Packing Items Added</p>}
