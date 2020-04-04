@@ -37,7 +37,7 @@ class Signup extends Component {
 
         API.user(loginInfo)
         .then(res => {
-            localStorage.setItem("email", res.data.email);
+            localStorage.setItem("id", res.data.id);
         });
         
         this.redirect();
