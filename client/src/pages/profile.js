@@ -26,7 +26,7 @@ class Profile extends Component {
 
     getFlights = () => {
         const id = JSON.parse(localStorage.getItem("id"));
-        API.getFlight(id)
+        API.getMyFlights(id)
         .then(res =>
             this.setState( {flights: res.data} )
         )
