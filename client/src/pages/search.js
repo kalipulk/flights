@@ -47,7 +47,7 @@ class Search extends Component {
     };
     email = data =>{
         // console.log(data)
-        API.email(data).then(response =>{
+        API.sendEmail(data).then(response =>{
             console.log(response);
         })
     }
@@ -81,9 +81,11 @@ class Search extends Component {
            emailData.departureTime=response.data.departureTime;
         
            this.email(emailData);
+         
         }).then(API.getEmailAddress(JSON.parse(localStorage.getItem("id"))).then(response=>{
             
             emailData.email=response.data.email
+            
             
         }))
     }

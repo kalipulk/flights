@@ -2,6 +2,7 @@ const sendmail = require('sendmail')();
 
 module.exports ={
     email: function(req,res){
+        console.log(req.body);
         sendmail({
             from: "flyingTime@testing.com",
             to: req.body.email,

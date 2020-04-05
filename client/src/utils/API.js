@@ -2,12 +2,10 @@ import axios from "axios"
 import { func } from "prop-types";
 
 export default {
-    // email: function(req,res){
-    //     console.log(req.body)
-    //     axios.post("/api/email",req.body).then(response =>{
-     
-      
-    // },
+    sendEmail: function(emailData){
+        console.log(emailData);
+        return axios.post("/api/email", emailData)
+    },
     login: function(loginInfo){
 
        return axios.post("/api/login", loginInfo);
