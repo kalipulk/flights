@@ -6,11 +6,21 @@ import "./style.css";
 
 
 class Profile extends Component {
+ 
     
       render(){
+
+        var styles = {
+          container: {
+            backgroundColor: 'red'
+          }
+        }
+
+
           return(
-              <div>
-                <Jumbotron></Jumbotron>
+              <div style={styles.container}>
+                {/* <Jumbotron></Jumbotron> */}
+                <h1> We are Profile Page!!</h1>
             </div>
           )
       }

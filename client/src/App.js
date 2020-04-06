@@ -7,6 +7,7 @@ import Profile from "./pages/profile";
 import SideBar from "./components/SideBar/SideBar";
 import Nav from "./components/Nav";
 import Jumbotron from './components/Jumbotron';
+import SearchResults from './components/SearchResults';
 import API from './utils/API';
 
 class App extends React.Component {
@@ -99,13 +100,32 @@ class App extends React.Component {
         </div>
         
         <div id='main'>
+              <div className='header'>
+                  <h3 className={`
+                      title
+                      ${'left-' + leftOpen}
+                      ${'right-' + rightOpen}
+                  `}>
+                      Main header
+                  </h3>
+              </div>
+              <div className='content'>
+                  <SearchResults />
+                  <Switch>
+                    <Route exact path="/" component={Login} />
+                    <Route exact path="/signup" component={SignUp} />
+                    <Route exact path ="/search"component={Search} />
+                    <Route exact path ="/profile"component={Profile} />
+                    <Route exact path ="/sidebar"component={SideBar} />
+                </Switch>
+              </div>
+          </div>
           <div className='header'>
             <h3 className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}>
               SEARCH FUNCTION GOES HERE 
             </h3>
           </div>
           {this.state.backToLogin? <Redirect to={this.state.backToLogin}/>:console.log("place holder")}
-        </div>
 
         {this.state.login?
         <div id='right' className={rightOpen} >
@@ -170,22 +190,11 @@ class App extends React.Component {
                     <h3 className='title'>
                      Logged Out header
                     </h3>
-          <div className='content'>
-            <h3>SEARCH RESULTS DISPLAY HERE</h3><br/>
-              <Switch>
-                <Route exact path="/" component={Login} />
-                <Route exact path="/signup" component={SignUp} />
-                <Route exact path ="/search"component={Search} />
-                <Route exact path ="/profile"component={Profile} />
-                <Route exact path ="/sidebar"component={SideBar} />
-              </Switch>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-      
-    </div>
     }
-    </div>    
+    </div>
     </Router>
   );
 }
