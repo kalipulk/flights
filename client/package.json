@@ -7,9 +7,14 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+<<<<<<< HEAD:client/package.json
     "axios": "^0.19.2",
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
+=======
+    "node-sass": "^4.13.1",
+    "axios": "^0.19.2",
+>>>>>>> comp_3:client/react_flights/package.json
     "react": "^16.13.1",
     "react-datepicker": "^2.14.1",
     "react-dom": "^16.13.1",
