@@ -2,6 +2,10 @@ DROP DATABASE IF EXISTS flying_time_db;
 
 CREATE DATABASE flying_time_db;
 USE flying_time_db;
+
+INSERT INTO PackingLists (items, FlightId, createdAt,updatedAt)
+VALUES ("4 pairs of pants", 29,"2020-03-24 00:47:19","2020-03-24 00:51:19");
+
 INSERT INTO Data(departureCity,arrivalCity,departureAirport,arrivalAirport, departureTime,arrivalTime, departureDate,
 returnDate, price, returnDepartureTime,returnArrivalTime, class, airline, stops,gate,totalFlightTime, createdAt, updatedAt)
 VALUES("New_York_City","San_Francisco","JFK","SFO","1:00pm","4:00am", "2020-06-06","2020-06-12", 50,"6:30pm", "7:45am","first", "United Airways",
