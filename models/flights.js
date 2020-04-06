@@ -1,15 +1,18 @@
 module.exports = function(sequelize, DataTypes) {
     var Flight = sequelize.define("Flight", {
-        arrival: {
+        arrivalCity: {
             type: DataTypes.STRING,
-            unique: true
+            
         },
-        departure: {
+        departureCity: {
             type: DataTypes.STRING,
-            unique: true
+            
         },
-        airport:{
+        departureAirport:{
             type:DataTypes.STRING,
+        },
+        arrivalAirport:{
+            type: DataTypes.STRING
         },
         price:{
             type: DataTypes.INTEGER
@@ -17,6 +20,21 @@ module.exports = function(sequelize, DataTypes) {
         purchased:{
             type: DataTypes.BOOLEAN,
             defaultValue: false
+        },
+        departureDate:{
+            type: DataTypes.STRING
+        },
+        arrivalDate:{
+            type: DataTypes.STRING
+        },
+        departureTime:{
+            type: DataTypes.STRING
+        },
+        returnDepartureTime:{
+            type: DataTypes.STRING
+        },
+        returnDepartureDate:{
+            type: DataTypes.STRING
         }
 
     });

@@ -5,6 +5,8 @@ const flightRoutes = require("./flights");
 const packingListRoutes= require("./packingList");
 const loginRoute = require("./login");
 const purchaseRoute = require("./purchase")
+const dataRoute = require("./data")
+const emailRoute = require("./email")
 
 
 router.use("/users", userRoutes);
@@ -16,6 +18,10 @@ router.use("/packingList", packingListRoutes);
 router.use("/login", loginRoute);
 
 router.use("/purchase", purchaseRoute);
+
+router.use("/data", dataRoute);
+
+router.use("/email", emailRoute);
 
 
 
