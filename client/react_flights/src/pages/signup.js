@@ -10,7 +10,8 @@ class Signup extends Component {
       render(){
           return(
               <div>
-          <Jumbotron></Jumbotron>
+          {/* <Jumbotron> I AM THE SIGN UP!!!!!</Jumbotron> */}
+          <h1> I AM A THE SIGN UP PAGE!!!!</h1>
           </div>
           )
       }
