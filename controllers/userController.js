@@ -18,8 +18,6 @@ module.exports ={
     
     },
     findEmailById: function(req, res) {
-        console.log("hello");
-        var id = req.params.id;
         db.User.findOne({
             where: { id: req.params.id },
         }).then(function(response) {
