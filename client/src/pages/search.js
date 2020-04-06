@@ -80,12 +80,12 @@ class Search extends Component {
            emailData.departureDate=response.data.departureDate;
            emailData.departureTime=response.data.departureTime;
         
-           this.email(emailData);
+         
          
         }).then(API.getEmailAddress(JSON.parse(localStorage.getItem("id"))).then(response=>{
             
             emailData.email=response.data.email
-            
+            this.email(emailData);
             
         }))
     }
