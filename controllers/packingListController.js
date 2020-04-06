@@ -11,8 +11,9 @@ module.exports ={
 findList: function(req,res){
     var id = req.params.id;
     console.log(id);
-    db.PackingList.findAll({
-        where: { FlightId: id }
+    db.Flight.findAll({
+        where: { id: id },
+        include: [db.PackingList]
     }).then(function(response) {
         res.json(response);
        
@@ -20,23 +21,26 @@ findList: function(req,res){
 
 },
     deleteList: function(req,res){
+       
         var id = req.params.id;
+        console.log(id)
         db.PackingList.destroy({
             where: { Flightid: id },
         }).then(function(response) {
+            console.log(response);
             res.json(response);
         });
     
 },
-    // deleteItem: function(req,res){
-    //     var id = req.params.id;
-    //     db.PackingList.destroy({
-    //         where: {id: id}
-    //     }).then(function(response){
-    //         console.log("item deleted");
-    //         res.json(response);
-    //     })
-    // },
+    deleteItem: function(req,res){
+        var id = req.params.id;
+        db.PackingList.destroy({
+            where: {id: id}
+        }).then(function(response){
+            console.log("item deleted");
+            res.json(response);
+        })
+    },
     updateList:function (req,res){
         var id = req.body.id
        

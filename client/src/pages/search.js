@@ -45,8 +45,14 @@ class Search extends Component {
           [name]: value
         });
     };
+    email = data =>{
+        // console.log(data)
+        API.sendEmail(data).then(response =>{
+            console.log(response);
+        })
+    }
     buyFlights = (data) =>{
-        
+        let emailData = {}
         const purchasedFlights = {
             arrivalCity: data.arrivalCity,
             departureCity: data.departureCity,
@@ -65,8 +71,23 @@ class Search extends Component {
         // console.log(purchasedFlights);
         API.buyFLight(purchasedFlights).then(response=>{
            this.setState({searchDone:false});
-        //    console.log(response);
-        })
+        
+           emailData.arrivalCity=response.data.arrivalCity;
+           emailData.departureCity=response.data.departureCity;
+           emailData.arrivalAirport=response.data.arrivalAirport;
+           emailData.departureAirport=response.data.departureAirport;
+           emailData.price=response.data.price;
+           emailData.departureDate=response.data.departureDate;
+           emailData.departureTime=response.data.departureTime;
+        
+         
+         
+        }).then(API.getEmailAddress(JSON.parse(localStorage.getItem("id"))).then(response=>{
+            
+            emailData.email=response.data.email
+            this.email(emailData);
+            
+        }))
     }
     wishList = (data) =>{
         

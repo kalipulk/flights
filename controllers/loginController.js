@@ -1,6 +1,4 @@
 const db = require("../models");
-var passport = require("../config/passport");
-var bcrypt = require("bcryptjs");
 
 module.exports ={
     login: function(req,res){
@@ -9,4 +7,4 @@ module.exports ={
         //     res.json(req.user);
         //   };
     }
-}
+ }
