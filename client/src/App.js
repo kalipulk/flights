@@ -33,9 +33,11 @@ class App extends React.Component {
     console.log(this.state.backToLogin);
   }
   loginCheck = ()=>{
+    
     // console.log(this.state.login);
     if(localStorage.getItem("id")!== null && this.state.login === false){
       // console.log(this.state.login)
+      this.setState({backToLogin:null});
       this.setState({login:true})
       this.flights(JSON.parse(localStorage.getItem("id")))
       
@@ -44,7 +46,10 @@ class App extends React.Component {
   logout = ()=>{
     localStorage.clear();
     this.redirect();
+    
+    this.setState({userFlights:[]});
     this.setState({login: false});
+    
     
   }
   flights =(id)=>{
@@ -77,10 +82,12 @@ class App extends React.Component {
     })
   }
   componentDidMount = ()=>{
+    
     this.loginCheck();
     
   }
   componentDidUpdate = ()=>{
+    
     this.loginCheck();
     // this.flights(JSON.parse(localStorage.getItem("id")))
   }

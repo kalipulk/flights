@@ -45,7 +45,7 @@ class Login extends Component {
         if (this.state.changePage) {
           return <Redirect to={this.state.changePage} />
         }
-        console.log(this.state.changePage);
+        
         return(
         <div>
           <Jumbotron/>
