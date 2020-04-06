@@ -6,6 +6,10 @@ import API from "../utils/API";
 import {BrowserRouter as Router, Redirect,} from 'react-router-dom';
 
 class Login extends Component {
+  constructor(props){
+      super(props)
+     this.loginCheck = () => props.loginCheck() 
+    }
     state = {
         email: "",
         password:"",
@@ -37,7 +41,9 @@ class Login extends Component {
         API.login(credentials).then(response =>{
             localStorage.clear();
             localStorage.setItem("id", response.data.id);
+           
             this.redirect();
+            this.loginCheck()
         })}
       };
      

@@ -89,13 +89,13 @@ class App extends React.Component {
   componentDidUpdate = ()=>{
     
     this.loginCheck();
-    // this.flights(JSON.parse(localStorage.getItem("id")))
+   
   }
   
   render() {
     let leftOpen = this.state.leftOpen ? 'open' : 'closed';
     let rightOpen = this.state.rightOpen ? 'open' : 'closed';
-  
+    this.loginCheck();
   
     return (
     <Router>
@@ -118,8 +118,8 @@ class App extends React.Component {
               <div className='content'>
                   <h3>Main content</h3><br/>
                   <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/" component={() => <Login loginCheck={this.loginCheck} />} />
+          <Route exact path="/signup" component={() => <SignUp loginCheck={this.loginCheck} />} />
           <Route exact path ="/search"component={Search} />
           <Route exact path ="/profile"component={Profile} />
           <Route exact path ="/sidebar"component={SideBar} />
@@ -142,7 +142,7 @@ class App extends React.Component {
               </h3>
             </div>
             <div className='content'>
-                <h3>Right content</h3><br/>
+                <h3>Purchased Flights</h3><br/>
                 {this.state.userFlights.map(flight =>{
                  
                   if(flight[0].purchased === true ){
