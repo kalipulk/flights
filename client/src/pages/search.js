@@ -119,7 +119,7 @@ class Search extends Component {
                 return (
                 <SearchResults 
                     
-                    key={search.departureCity}
+                    key={search.id}
                     purchaseFlight={this.buyFlights}
                     wishList={this.wishList}
                     allData={search}
