@@ -166,14 +166,7 @@ class App extends React.Component {
                   }
                 })}
                 <button onClick ={()=>this.logout()}>LogOut</button> 
-                {/* {this.state.checkout.map((flight)=>{
-             return(
-               <div>
-                 <h1>{flight}</h1>
-                 <span className="delete-btn" role="button" tabIndex="0" onClick={()=>{this.removeFromList(flight)}}>x</span>
-                </div>
-             )
-           })} */}
+               
           </div>
     </div>
     
@@ -194,14 +187,7 @@ class App extends React.Component {
                   </div>
                   <div className='content'>
                       <h3>Right content</h3><br/>
-                      {/* {this.state.checkout.map((flight)=>{
-                   return(
-                     <div>
-                       <h1>{flight}</h1>
-                       <span className="delete-btn" role="button" tabIndex="0" onClick={()=>{this.removeFromList(flight)}}>x</span>
-                      </div>
-                   )
-                 })} */}
+                    
                 </div>
           </div>
           
