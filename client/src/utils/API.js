@@ -2,6 +2,10 @@ import axios from "axios"
 import { func } from "prop-types";
 
 export default {
+    sendEmail: function(emailData){
+        console.log(emailData);
+        return axios.post("/api/email", emailData)
+    },
     login: function(loginInfo){
 
        return axios.post("/api/login", loginInfo);
@@ -30,6 +34,12 @@ export default {
     getMyFlights: function(id) {
 
         return axios.get("api/flights/" + id);
+    },
+    getMyList: function(id){
+        return axios.get("api/packingList/"+id);
+    },
+    removeFromList: function(id){
+        return axios.delete("api/packingList/"+id)
     }
 
 }

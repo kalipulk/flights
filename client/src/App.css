@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  font-family: 'Nunito', sans-serif;
 }
 
 .App-logo {
@@ -37,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* FONTS AND COLORS
+font-family: 'Lato', sans-serif;
+font-family: 'Poiret One', cursive;
+#006372	(0,99,114)
+#007e6e	(0,126,110)
+#00a16c	(0,161,108)
+#00bf6d	(0,191,109)
+#00d871	(0,216,113) */
+

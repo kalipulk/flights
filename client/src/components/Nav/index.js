@@ -35,19 +35,7 @@ class Nav extends Component {
         <nav className="navbarMan">
           <Link className="navbarBrand" to="/">
           </Link>
-          <button
-            onClick={this.toggleNav}
-            className="navbarToggler"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i class="fas fa-chevron-down"></i>
-            <span className="navbarTogglerIcon" /> 
-          </button>
-          <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
+          <div className={`${this.state.open ? "" : ""}navbar-collapse`} id="navbarNav">
             <ul className="navbarNav">
             <li className="navItem">
                 <Link

@@ -6,6 +6,10 @@ import API from "../utils/API";
 
 
 class Signup extends Component {
+    constructor(props){
+        super(props)
+        this.loginCheck = () => props.loginCheck() 
+      }
     state = {
         firstName: "",
         lastName: "",
@@ -38,9 +42,11 @@ class Signup extends Component {
         API.user(loginInfo)
         .then(res => {
             localStorage.setItem("id", res.data.id);
+            this.loginCheck()
         });
         
         this.redirect();
+        
     };
    
       render() {

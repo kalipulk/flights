@@ -4,8 +4,14 @@ import Jumbotron from "../components/Jumbotron";
 import Button from "../components/Button";
 import API from "../utils/API";
 import {BrowserRouter as Router, Redirect,} from 'react-router-dom';
+import "./style.css";
+
 
 class Login extends Component {
+  constructor(props){
+      super(props)
+     this.loginCheck = () => props.loginCheck() 
+    }
     state = {
         email: "",
         password:"",
@@ -30,14 +36,15 @@ class Login extends Component {
        
         
         if (!credentials.email || !credentials.password) {
-            
             return;
         }else{
           
         API.login(credentials).then(response =>{
             localStorage.clear();
             localStorage.setItem("id", response.data.id);
+           
             this.redirect();
+            this.loginCheck()
         })}
       };
      
@@ -45,10 +52,10 @@ class Login extends Component {
         if (this.state.changePage) {
           return <Redirect to={this.state.changePage} />
         }
-        console.log(this.state.changePage);
+        
         return(
         <div>
-          <Jumbotron/>
+          {/* <Jumbotron/> */}
           <form>
           <div className="form-group">
             <label htmlFor="email">Email:</label>
