@@ -40,6 +40,9 @@ export default {
     },
     removeFromList: function(id){
         return axios.delete("api/packingList/"+id)
+    },
+    addToList: function(listData){
+        return axios.post("api/packingList/"+listData)
     }
 
 }

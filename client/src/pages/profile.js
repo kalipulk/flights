@@ -2,13 +2,38 @@ import React, { Component } from "react";
 import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
 import PurchasedResults from "../components/PurchasedResults";
+import PackingListForm from "../components/PackingListForm";
 import API from "../utils/API";
 
 class Profile extends Component {
     state = {
         email: "",
         flights: [],
+        item:""
     };
+    packingListAdd = listData =>{
+        API.addToList(listData).then(res =>{
+            console.log("Added new Item")
+        })
+    }
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+        
+      };
+      handleFormSubmit = (event, id) => {
+        event.preventDefault();
+        const listData ={
+            items:this.state.item,
+            // FlightId:id
+        }
+        console.log(listData)
+        
+        // this.packingListAdd(listData);
+        
+      };
 
     componentDidMount() {
         this.getEmail();
@@ -48,21 +73,29 @@ class Profile extends Component {
                     <br></br>
                     <h4>Purchased Flights:</h4>
                         {this.state.flights.map(flight => {
-                            console.log(flight);
+                            
                             if (flight.purchased === true) {
                                 return (
-                                    <PurchasedResults
-                                        key={flight.id}
-                                        departureCity={flight.departureCity.replace(/_/g," ")}
-                                        departureAirport={flight.departureAirport}
-                                        arrivalCity={flight.arrivalCity.replace(/_/g," ")}
-                                        arrivalAirport={flight.arrivalAirport}
-                                        price={flight.price}
-                                        departureDate={flight.departureDate}
-                                        departureTime={flight.departureTime}
-                                        returnDepartureTime={flight.returnDepartureTime}
-                                        returnDepartureDate={flight.returnDepartureDate}
-                                    />
+                                    <div>
+                                        <PurchasedResults
+                                            key={flight.id}
+                                            departureCity={flight.departureCity.replace(/_/g," ")}
+                                            departureAirport={flight.departureAirport}
+                                            arrivalCity={flight.arrivalCity.replace(/_/g," ")}
+                                            arrivalAirport={flight.arrivalAirport}
+                                            price={flight.price}
+                                            departureDate={flight.departureDate}
+                                            departureTime={flight.departureTime}
+                                            eturnDepartureTime={flight.returnDepartureTime}
+                                            returnDepartureDate={flight.returnDepartureDate}
+                                        />
+                                        <PackingListForm
+                                           
+                                            id={flight.id}
+                                            handleInputChange={this.handleInputChange}
+                                            handleFormSubmit={this.handleFormSubmit}
+                                            item={this.state.item}/>
+                                    </div>
                                 );
                             }
                         })}
@@ -70,7 +103,7 @@ class Profile extends Component {
                     <br></br>
                     <h4>Wish List:</h4>
                     {this.state.flights.map(flight => {
-                            console.log(flight);
+                            
                             if (flight.purchased === false) {
                                 return (
                                     <PurchasedResults
