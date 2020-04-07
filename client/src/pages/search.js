@@ -122,7 +122,7 @@ class Search extends Component {
            
             this.setState({searchList:[response.data[0]]});
             this.setState({searchDone:true});
-            // console.log(this.state.searchList);
+            console.log(this.state.searchList);
         })
     };
     

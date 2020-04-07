@@ -19,7 +19,7 @@ class Signup extends Component {
     };
 
     redirect() {
-        this.setState({ changePage:"/profile" })
+        this.setState({ changePage:"/search" })
     }
 
     handleInputChange = event => {
