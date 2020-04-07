@@ -4,6 +4,8 @@ import Jumbotron from "../components/Jumbotron";
 import Button from "../components/Button";
 import API from "../utils/API";
 import {BrowserRouter as Router, Redirect,} from 'react-router-dom';
+import "./style.css";
+
 
 class Login extends Component {
   constructor(props){
@@ -34,7 +36,6 @@ class Login extends Component {
        
         
         if (!credentials.email || !credentials.password) {
-            
             return;
         }else{
           
@@ -54,7 +55,7 @@ class Login extends Component {
         
         return(
         <div>
-          <Jumbotron/>
+          {/* <Jumbotron/> */}
           <form>
           <div className="form-group">
             <label htmlFor="email">Email:</label>

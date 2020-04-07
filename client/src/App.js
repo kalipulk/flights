@@ -7,6 +7,7 @@ import Profile from "./pages/profile";
 import SideBar from "./components/SideBar/SideBar";
 import Nav from "./components/Nav";
 import Jumbotron from './components/Jumbotron';
+import SearchResults from './components/SearchResults';
 import API from './utils/API';
 
 class App extends React.Component {
@@ -116,18 +117,25 @@ class App extends React.Component {
                   </h3>
               </div>
               <div className='content'>
-                  <h3>Main content</h3><br/>
+                  <SearchResults />
                   <Switch>
+
           <Route exact path="/" component={() => <Login loginCheck={this.loginCheck} />} />
           <Route exact path="/signup" component={() => <SignUp loginCheck={this.loginCheck} />} />
           <Route exact path ="/search"component={Search} />
           <Route exact path ="/profile"component={Profile} />
           <Route exact path ="/sidebar"component={SideBar} />
         </Switch>
+
               </div>
           </div>
-        {this.state.backToLogin? <Redirect to={this.state.backToLogin}/>:console.log("place holder")}
-        
+          <div className='header'>
+            <h3 className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}>
+              SEARCH FUNCTION GOES HERE 
+            </h3>
+          </div>
+          {this.state.backToLogin? <Redirect to={this.state.backToLogin}/>:console.log("place holder")}
+
         {this.state.login?
         <div id='right' className={rightOpen} >
         <div className='icon'
@@ -185,18 +193,15 @@ class App extends React.Component {
                      Logged Out header
                     </h3>
                   </div>
+
                   <div className='content'>
                       <h3>Right content</h3><br/>
                     
                 </div>
+
           </div>
-          
-        
-        </div>
-        }
-        
-      </div>
-        
+    }
+    </div>
     </Router>
   );
 }

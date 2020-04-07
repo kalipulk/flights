@@ -1,5 +1,6 @@
 import React from 'react';
 import './css/style.css';
+import Jumbotron from '../../Jumbotron';
 
 class Layout extends React.Component {
   constructor(props) {
@@ -8,18 +9,7 @@ class Layout extends React.Component {
     this.state = {
       rightOpen: true,
       leftOpen: true,
-      flights: [{
-        destination: "Chicago",
-        price: "$50",
-      }, 
-      {
-        destination: "Los Angelas",
-        price: "$100",
-      },
-      {
-        destination: "Seattle",
-        price: "$75"
-    }],
+      flights: [],
     checkout: []
     }
   }
@@ -52,8 +42,6 @@ class Layout extends React.Component {
     let leftOpen = this.state.leftOpen ? 'open' : 'closed';
     let rightOpen = this.state.rightOpen ? 'open' : 'closed';
 
-    console.log('this our state!!', this.state)
-
     return (
       <div id='layout'>
 
@@ -71,7 +59,7 @@ class Layout extends React.Component {
                   <div className='content'>
                       <h3>Left content</h3>
                       <p>
-                        Aenean ut felis finibus, aliquet mi a, feugiat felis. Donec porta, odio et vulputate laoreet, nibh odio iaculis mi, et ornare nulla orci vitae ligula. Sed mi velit, aliquam sit amet efficitur eget, scelerisque vel ligula. Aliquam finibus erat nec accumsan posuere. Vestibulum rhoncus, velit vitae volutpat vehicula, leo orci faucibus eros, at ornare nibh nunc nec mi. Donec porttitor ultricies mauris quis euismod. Praesent sem libero, venenatis ut ornare eget, volutpat tincidunt lacus. Pellentesque aliquam turpis et mauris consectetur, quis condimentum nunc dignissim. Cras lectus libero, pellentesque non malesuada at, condimentum nec ex. Nam sed accumsan enim. Donec eros massa, malesuada quis nulla elementum, imperdiet condimentum orci. Integer non velit et nulla vestibulum vestibulum. Proin vehicula tristique libero, eu tincidunt erat cursus ac. Ut malesuada ante ut est dictum, ornare varius arcu aliquet. Quisque vitae libero eget orci tristique aliquam id sit amet nunc.
+                        CONTENT  
                       </p>
                   </div>
               </div>
@@ -79,13 +67,9 @@ class Layout extends React.Component {
 
           <div id='main'>
               <div className='header'>
-                  <h3 className={`
-                      title
-                      ${'left-' + leftOpen}
-                      ${'right-' + rightOpen}
-                  `}>
-                      Main header
-                  </h3>
+                  <div className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}>
+                    <Jumbotron />
+                  </div>
               </div>
               <div className='content'>
                   <h3>Main content</h3><br/>
