@@ -34,9 +34,11 @@ class App extends React.Component {
     console.log(this.state.backToLogin);
   }
   loginCheck = ()=>{
+    
     // console.log(this.state.login);
     if(localStorage.getItem("id")!== null && this.state.login === false){
       // console.log(this.state.login)
+      this.setState({backToLogin:null});
       this.setState({login:true})
       this.flights(JSON.parse(localStorage.getItem("id")))
       
@@ -45,7 +47,10 @@ class App extends React.Component {
   logout = ()=>{
     localStorage.clear();
     this.redirect();
+    
+    this.setState({userFlights:[]});
     this.setState({login: false});
+    
     
   }
   flights =(id)=>{
@@ -78,18 +83,20 @@ class App extends React.Component {
     })
   }
   componentDidMount = ()=>{
+    
     this.loginCheck();
     
   }
   componentDidUpdate = ()=>{
+    
     this.loginCheck();
-    // this.flights(JSON.parse(localStorage.getItem("id")))
+   
   }
   
   render() {
     let leftOpen = this.state.leftOpen ? 'open' : 'closed';
     let rightOpen = this.state.rightOpen ? 'open' : 'closed';
-  
+    this.loginCheck();
   
     return (
     <Router>
@@ -112,12 +119,14 @@ class App extends React.Component {
               <div className='content'>
                   <SearchResults />
                   <Switch>
-                    <Route exact path="/" component={Login} />
-                    <Route exact path="/signup" component={SignUp} />
-                    <Route exact path ="/search"component={Search} />
-                    <Route exact path ="/profile"component={Profile} />
-                    <Route exact path ="/sidebar"component={SideBar} />
-                </Switch>
+
+          <Route exact path="/" component={() => <Login loginCheck={this.loginCheck} />} />
+          <Route exact path="/signup" component={() => <SignUp loginCheck={this.loginCheck} />} />
+          <Route exact path ="/search"component={Search} />
+          <Route exact path ="/profile"component={Profile} />
+          <Route exact path ="/sidebar"component={SideBar} />
+        </Switch>
+
               </div>
           </div>
           <div className='header'>
@@ -141,7 +150,7 @@ class App extends React.Component {
               </h3>
             </div>
             <div className='content'>
-                <h3>Right content</h3><br/>
+                <h3>Purchased Flights</h3><br/>
                 {this.state.userFlights.map(flight =>{
                  
                   if(flight[0].purchased === true ){
@@ -165,14 +174,7 @@ class App extends React.Component {
                   }
                 })}
                 <button onClick ={()=>this.logout()}>LogOut</button> 
-                {/* {this.state.checkout.map((flight)=>{
-             return(
-               <div>
-                 <h1>{flight}</h1>
-                 <span className="delete-btn" role="button" tabIndex="0" onClick={()=>{this.removeFromList(flight)}}>x</span>
-                </div>
-             )
-           })} */}
+               
           </div>
     </div>
     
@@ -191,7 +193,12 @@ class App extends React.Component {
                      Logged Out header
                     </h3>
                   </div>
-              </div>
+
+                  <div className='content'>
+                      <h3>Right content</h3><br/>
+                    
+                </div>
+
           </div>
     }
     </div>
