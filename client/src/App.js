@@ -122,7 +122,7 @@ class App extends React.Component {
           <Route exact path="/" component={() => <Login loginCheck={this.loginCheck} />} />
           <Route exact path="/signup" component={() => <SignUp loginCheck={this.loginCheck} />} />
           <Route exact path ="/search"component={Search} />
-          <Route exact path ="/profile"component={Profile} />
+          <Route exact path ="/profile"component={() => <Profile flights={this.flights} />} />
           <Route exact path ="/sidebar"component={SideBar} />
         </Switch>
               </div>

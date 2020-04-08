@@ -2,19 +2,56 @@ import React, { Component } from "react";
 import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
 import PurchasedResults from "../components/PurchasedResults";
+import PackingListForm from "../components/PackingListForm";
 import Button from "../components/Button";
 import API from "../utils/API";
 
 class Profile extends Component {
+    constructor(props){
+        super(props)
+       this.flights = () => props.flights(localStorage.getItem("id")) 
+      }
     state = {
         email: "",
         flights: [],
+        item:""
     };
+    packingListAdd = listData =>{
+        API.addToList(listData).then(res =>{
+            this.flights(JSON.parse(localStorage.getItem("id")))
+            console.log("Added new Item")
+        })
+    }
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+        
+      };
+      handleFormSubmit = (event, id) => {
+          
+        event.preventDefault();
+        const listData ={
+            items:this.state.item,
+            FlightId:id
+        }
+      
+        
+        this.packingListAdd(listData);
+        
+      };
 
     componentDidMount() {
         this.getEmail();
         this.getFlights();
+        
     }
+    // componentDidUpdate = ()=>{
+    
+    //     this.flights(JSON.parse(localStorage.getItem("id")))
+       
+    //   }
 
     getEmail = () => {
         const id = JSON.parse(localStorage.getItem("id"));
@@ -69,6 +106,7 @@ class Profile extends Component {
                     <br></br>
                     <h4>Purchased Flights:</h4>
                         {this.state.flights.map(flight => {
+
                             if (flight.purchased === true) {
                                 return (
                                     <div>
@@ -82,11 +120,21 @@ class Profile extends Component {
                                             price={flight.price}
                                             departureDate={flight.departureDate}
                                             departureTime={flight.departureTime}
+
                                             returnDepartureTime={flight.returnDepartureTime}
                                             returnDepartureDate={flight.returnDepartureDate}
                                         />
+                                        <PackingListForm
+                                           
+                                            id={flight.id}
+                                            handleInputChange={this.handleInputChange}
+                                            handleFormSubmit={this.handleFormSubmit}
+                                            item={this.state.item}/>
+
+                                        />
                                         <hr></hr>
                                         <br></br>
+
                                     </div>
                                 );
                             }
@@ -95,6 +143,7 @@ class Profile extends Component {
                     <br></br>
                     <h4>Wish List:</h4>
                     {this.state.flights.map(flight => {
+
                             if (flight.purchased === false) {
                                 return (
                                     <div>

@@ -43,12 +43,18 @@ export default {
 
         return axios.delete("api/packingList/"+id)
     },
+
+    addToList: function(listData){
+        return axios.post("api/packingList",listData)
+    },
+
     buyFromWishList: function(id) {
 
         return axios.put("/api/purchase/" + id);
     },
     removeWishList: function(id) {
         return axios.delete("/api/purchase/" + id);
+
     }
 
 }
