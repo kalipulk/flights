@@ -52,7 +52,6 @@ class App extends React.Component {
     this.setState({login: false});
   }
 
-
   flights =(id)=>{
     const usersFlightArray = []
     API.getMyFlights(id).then((response)=>{
@@ -113,36 +112,38 @@ class App extends React.Component {
 
         {this.state.backToLogin? <Redirect to={this.state.backToLogin}/>:console.log("place holder")}
         {this.state.login?
-
         <Layout layout="right"> 
-                {this.state.userFlights.map(flight =>{
-                 
-                  if(flight[0].purchased === true ){
-                    // console.log(flight[0].PackingLists[0].id)
-                    return (
-                      <div>
-                        <h6 key={flight[0].id}>{flight[0].arrivalCity.replace(/_/g," ")} to {flight[0].departureCity.replace(/_/g," ")}</h6>
-                          {flight[0].PackingLists.length>0?
-                          flight[0].PackingLists.map(item =>{
-                            // console.log(item);
-                            return (
-                              <div>
-                              <p key={item.id}>{item.items}</p> <button onClick={()=>this.deleteFromList(item.id)}>remove</button>
-                              </div>
-                            )
-                          }):<p>No Packing Items Added</p>}
-                      </div>
-                    )
-                  }
-                })}
-                <button onClick ={()=>this.logout()}>LogOut</button> 
+          {this.state.userFlights.map(flight =>{
+            if(flight[0].purchased === true ){
+            // console.log(flight[0].PackingLists[0].id)
+              return (
+                <div>
+                  <h6 key={flight[0].id}>{flight[0].arrivalCity.replace(/_/g," ")} to {flight[0].departureCity.replace(/_/g," ")}</h6>
+                    {flight[0].PackingLists.length>0?
+                    flight[0].PackingLists.map(item =>{
+                    // console.log(item);
+                      return (
+                        <div>
+                          <p key={item.id}>{item.items}</p> <button onClick={()=>this.deleteFromList(item.id)}>remove</button>
+                        </div>
+                      )
+                    }):<p>No Packing Items Added</p>}
+                </div>
+              )
+            }
+          })}
+          <button onClick ={()=>this.logout()}>LogOut</button> 
         </Layout>  
         :
         <Layout layout="right" />
         }
+
         
       </div>
-        
+
+{/* BEGINNING OF CAROUSEL COMPONENT */}
+      {/* <Carosel /> */}
+
     </Router>
   );
 }

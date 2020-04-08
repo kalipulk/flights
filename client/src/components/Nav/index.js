@@ -33,38 +33,25 @@ class Nav extends Component {
     render() {
       return (
         <nav className="navbarMan">
-          <Link className="navbarBrand" to="/">
-          </Link>
+          <Link className="navbarBrand" to="/"></Link>
           <div className={`${this.state.open ? "" : ""}navbar-collapse`} id="navbarNav">
-            <ul className="navbarNav">
-            <li className="navItem">
-                <Link
-                  onClick={this.toggleNav}
-                  className={window.location.pathname === "/signup" ? "nav-link active" : "nav-link"}
-                  to="/signup"
-                >
-                  Sign Up
-                </Link>
-              </li>
-              <li className="navItem">
-                <Link
-                  onClick={this.toggleNav}
-                  className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
-                  to="/search"
-                >
+            <div className="navbarNav">
+              <div className="navItem">
+                  <Link onClick={this.toggleNav} className={window.location.pathname === "/signup" ? "nav-link active" : "nav-link"} to="/signup">
+                    Sign Up
+                  </Link>
+                </div>
+              <div className="navItem">
+                <Link onClick={this.toggleNav} className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"} to="/search">
                   Search
                 </Link>
-              </li>
-              <li className="navItem">
-                <Link
-                  onClick={this.toggleNav}
-                  className={window.location.pathname === "/profile" ? "nav-link active" : "nav-link"}
-                  to="/profile"
-                >
+              </div>
+              <div className="navItem">
+                <Link onClick={this.toggleNav} className={window.location.pathname === "/profile" ? "nav-link active" : "nav-link"} to="/profile" >
                   Profile
                 </Link>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </nav>
       );

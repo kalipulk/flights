@@ -42,7 +42,7 @@ class Layout extends Component {
                 return (
                     <div id='right' className={rightOpen} >
                             <div className='icon' onClick={this.toggleSidebar}> 
-                            <i class="fas fa-user-circle"></i>
+                            <i class="fas fa-user-circle fa-lg"></i>
                             </div>
                         <div className={`sidebar ${rightOpen}`} >
                             <div className='header'>
