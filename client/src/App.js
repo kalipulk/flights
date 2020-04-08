@@ -5,6 +5,7 @@ import SignUp from "./pages/signup";
 import Search from "./pages/search";
 import Profile from "./pages/profile";
 import SideBar from "./components/SideBar/SideBar";
+import Layout from "./components/Layout";
 import Nav from "./components/Nav";
 import Jumbotron from './components/Jumbotron';
 import API from './utils/API';
@@ -18,7 +19,7 @@ class App extends React.Component {
       leftOpen: false,
       login: false,
       userFlights: [],
-      backToLogin:null
+      backToLogin: null
     }
   }
 
@@ -90,23 +91,13 @@ class App extends React.Component {
   
     return (
     <Router>
+
      
       <div id='layout'>
+        <Layout layout="left"/>
 
-        <div id='left' className={leftOpen} >
-            <div className='icon'onClick={this.toggleSidebar}>
-              &equiv;
-            </div>
-            <div className={`sidebar ${leftOpen}`} >
-              <div className='content'> PLACEHOLDER
-                <div className='header'>
-                  <div>
-                    <Nav />
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>  
+
+
         
         <div id='main'>
           <div className='header'>
