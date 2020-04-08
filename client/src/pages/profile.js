@@ -41,10 +41,21 @@ class Profile extends Component {
         });
     }
 
-    // purchaseFromWishList = id => {
-    //     const flight = this.state.flights.find(flight => flight.id == id);
-    //     flight.purchased = true;
-    // }
+    purchaseFromWishList = id => {
+        const flight = this.state.flights.find(flight => flight.id === id);
+        API.buyFromWishList(flight.id)
+        .then(res => this.getFlights())
+        .catch(err => console.log(err));
+    }
+
+    removeFromWishList = id => {
+        const flight = this.state.flights.find(flight => flight.id === id);
+        console.log(id);
+        console.log("clicked");
+        API.removeWishList(flight.id)
+        .then(res => this.getFlights())
+        .catch(err => console.log(err));
+    }
 
         render() {
 
@@ -58,12 +69,12 @@ class Profile extends Component {
                     <br></br>
                     <h4>Purchased Flights:</h4>
                         {this.state.flights.map(flight => {
-                            console.log(flight);
                             if (flight.purchased === true) {
                                 return (
                                     <div>
                                         <PurchasedResults
                                             key={flight.id}
+                                            id={flight.id}
                                             departureCity={flight.departureCity.replace(/_/g," ")}
                                             departureAirport={flight.departureAirport}
                                             arrivalCity={flight.arrivalCity.replace(/_/g," ")}
@@ -84,12 +95,12 @@ class Profile extends Component {
                     <br></br>
                     <h4>Wish List:</h4>
                     {this.state.flights.map(flight => {
-                            console.log(flight);
                             if (flight.purchased === false) {
                                 return (
                                     <div>
                                         <PurchasedResults
                                             key={flight.id}
+                                            id={flight.id}
                                             departureCity={flight.departureCity.replace(/_/g," ")}
                                             departureAirport={flight.departureAirport}
                                             arrivalCity={flight.arrivalCity.replace(/_/g," ")}
@@ -102,7 +113,11 @@ class Profile extends Component {
                                         />
                                         <Button
                                             title="Purchase Flight"
-                                            // click={this.purchaseFromWishList(flight.id)}
+                                            click={() => this.purchaseFromWishList(flight.id)}
+                                        />
+                                        <Button
+                                            title="Remove From Wish List"
+                                            click={() => this.removeFromWishList(flight.id)}
                                         />
                                         <hr></hr>
                                         <br></br>
