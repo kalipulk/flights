@@ -6,7 +6,8 @@ router
     
 router
     .route("/:id")
-    .put(purchaseController.buyOffWishList);
+    .put(purchaseController.buyOffWishList)
+    .delete(purchaseController.deleteWishlistItem)
 
 module.exports =router
 

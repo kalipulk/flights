@@ -55,6 +55,7 @@ class App extends React.Component {
   flights =(id)=>{
     const usersFlightArray = []
     API.getMyFlights(id).then((response)=>{
+      console.log("help!", response)
       for(let i = 0;i <response.data[0].Flights.length;i++){
         
         if(response.data[0].Flights[i].purchased){
