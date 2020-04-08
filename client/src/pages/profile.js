@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
 import PurchasedResults from "../components/PurchasedResults";
+import Button from "../components/Button";
 import API from "../utils/API";
 
 class Profile extends Component {
@@ -32,9 +33,18 @@ class Profile extends Component {
             
         )
         .catch(err => console.log(err));
-
-        
     }; 
+
+    email = data =>{
+        API.sendEmail(data).then(response =>{
+            console.log(response);
+        });
+    }
+
+    // purchaseFromWishList = id => {
+    //     const flight = this.state.flights.find(flight => flight.id == id);
+    //     flight.purchased = true;
+    // }
 
         render() {
 
@@ -51,18 +61,22 @@ class Profile extends Component {
                             console.log(flight);
                             if (flight.purchased === true) {
                                 return (
-                                    <PurchasedResults
-                                        key={flight.id}
-                                        departureCity={flight.departureCity.replace(/_/g," ")}
-                                        departureAirport={flight.departureAirport}
-                                        arrivalCity={flight.arrivalCity.replace(/_/g," ")}
-                                        arrivalAirport={flight.arrivalAirport}
-                                        price={flight.price}
-                                        departureDate={flight.departureDate}
-                                        departureTime={flight.departureTime}
-                                        returnDepartureTime={flight.returnDepartureTime}
-                                        returnDepartureDate={flight.returnDepartureDate}
-                                    />
+                                    <div>
+                                        <PurchasedResults
+                                            key={flight.id}
+                                            departureCity={flight.departureCity.replace(/_/g," ")}
+                                            departureAirport={flight.departureAirport}
+                                            arrivalCity={flight.arrivalCity.replace(/_/g," ")}
+                                            arrivalAirport={flight.arrivalAirport}
+                                            price={flight.price}
+                                            departureDate={flight.departureDate}
+                                            departureTime={flight.departureTime}
+                                            returnDepartureTime={flight.returnDepartureTime}
+                                            returnDepartureDate={flight.returnDepartureDate}
+                                        />
+                                        <hr></hr>
+                                        <br></br>
+                                    </div>
                                 );
                             }
                         })}
@@ -73,18 +87,26 @@ class Profile extends Component {
                             console.log(flight);
                             if (flight.purchased === false) {
                                 return (
-                                    <PurchasedResults
-                                        key={flight.id}
-                                        departureCity={flight.departureCity.replace(/_/g," ")}
-                                        departureAirport={flight.departureAirport}
-                                        arrivalCity={flight.arrivalCity.replace(/_/g," ")}
-                                        arrivalAirport={flight.arrivalAirport}
-                                        price={flight.price}
-                                        departureDate={flight.departureDate}
-                                        departureTime={flight.departureTime}
-                                        returnDepartureTime={flight.returnDepartureTime}
-                                        returnDepartureDate={flight.returnDepartureDate}
-                                    />
+                                    <div>
+                                        <PurchasedResults
+                                            key={flight.id}
+                                            departureCity={flight.departureCity.replace(/_/g," ")}
+                                            departureAirport={flight.departureAirport}
+                                            arrivalCity={flight.arrivalCity.replace(/_/g," ")}
+                                            arrivalAirport={flight.arrivalAirport}
+                                            price={flight.price}
+                                            departureDate={flight.departureDate}
+                                            departureTime={flight.departureTime}
+                                            returnDepartureTime={flight.returnDepartureTime}
+                                            returnDepartureDate={flight.returnDepartureDate}
+                                        />
+                                        <Button
+                                            title="Purchase Flight"
+                                            // click={this.purchaseFromWishList(flight.id)}
+                                        />
+                                        <hr></hr>
+                                        <br></br>
+                                    </div>
                                 );
                             }
                         })}
