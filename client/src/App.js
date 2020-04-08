@@ -6,6 +6,7 @@ import Search from "./pages/search";
 import Profile from "./pages/profile";
 import SideBar from "./components/SideBar/SideBar";
 import Layout from "./components/Layout";
+import Carousel from "./components/Carousel";
 import Nav from "./components/Nav";
 import Jumbotron from './components/Jumbotron';
 import API from './utils/API';
@@ -100,6 +101,7 @@ class App extends React.Component {
           </div>
           <div className='content'>
             <h3>Main content</h3><br/>
+            
             <Switch>
               <Route exact path="/" component={() => <Login loginCheck={this.loginCheck} />} />
               <Route exact path="/signup" component={() => <SignUp loginCheck={this.loginCheck} />} />
@@ -107,6 +109,8 @@ class App extends React.Component {
               <Route exact path ="/profile"component={Profile} />
               <Route exact path ="/sidebar"component={SideBar} />
             </Switch>
+
+            <Carousel />
           </div>
         </div>
 
@@ -138,11 +142,10 @@ class App extends React.Component {
         <Layout layout="right" />
         }
 
-        
+       
       </div>
 
-{/* BEGINNING OF CAROUSEL COMPONENT */}
-      {/* <Carosel /> */}
+
 
     </Router>
   );
