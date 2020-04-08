@@ -13,10 +13,9 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       rightOpen: true,
-      leftOpen: true,
+      leftOpen: false,
       login: false,
       userFlights: [],
       backToLogin:null
@@ -27,53 +26,47 @@ class App extends React.Component {
     let key = `${event.currentTarget.parentNode.id}Open`;
     this.setState({ [key]: !this.state[key] });
   }
+
   redirect=()=>{
     console.log("test");
     this.setState({backToLogin:"/"})
     console.log(this.state.backToLogin);
   }
+
   loginCheck = ()=>{
-    
     // console.log(this.state.login);
     if(localStorage.getItem("id")!== null && this.state.login === false){
       // console.log(this.state.login)
       this.setState({backToLogin:null});
       this.setState({login:true})
       this.flights(JSON.parse(localStorage.getItem("id")))
-      
     }
   }
+
   logout = ()=>{
     localStorage.clear();
     this.redirect();
     
     this.setState({userFlights:[]});
     this.setState({login: false});
-    
-    
   }
+
+
   flights =(id)=>{
     const usersFlightArray = []
     API.getMyFlights(id).then((response)=>{
       for(let i = 0;i <response.data[0].Flights.length;i++){
-        
         if(response.data[0].Flights[i].purchased){
-          
           API.getMyList(response.data[0].Flights[i].id).then(response =>{
-            
             usersFlightArray.push(response.data)
-            
             this.setState({userFlights:usersFlightArray})
             // console.log(this.state.userFlights)
-            
-            
           })
         }
       }
-     
-    
     })
   }
+
   deleteFromList = id =>{
     console.log(id);
     API.removeFromList(id).then(response =>{
@@ -81,15 +74,13 @@ class App extends React.Component {
       window.location.reload(false);
     })
   }
+
   componentDidMount = ()=>{
-    
     this.loginCheck();
-    
   }
-  componentDidUpdate = ()=>{
-    
+
+  componentDidUpdate = ()=>{ 
     this.loginCheck();
-   
   }
   
   render() {
@@ -101,38 +92,43 @@ class App extends React.Component {
     <Router>
      
       <div id='layout'>
-        <div>
-          <Nav />
-        </div>
+
+        <div id='left' className={leftOpen} >
+            <div className='icon'onClick={this.toggleSidebar}>
+              &equiv;
+            </div>
+            <div className={`sidebar ${leftOpen}`} >
+              <div className='content'> PLACEHOLDER
+                <div className='header'>
+                  <div>
+                    <Nav />
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>  
         
         <div id='main'>
-              <div className='header'>
-                  <h3 className={`
-                      title
-                      ${'left-' + leftOpen}
-                      ${'right-' + rightOpen}
-                  `}>
-                      Main header
-                  </h3>
-              </div>
-              <div className='content'>
-                  <h3>Main content</h3><br/>
-                  <Switch>
-          <Route exact path="/" component={() => <Login loginCheck={this.loginCheck} />} />
-          <Route exact path="/signup" component={() => <SignUp loginCheck={this.loginCheck} />} />
-          <Route exact path ="/search"component={Search} />
-          <Route exact path ="/profile"component={Profile} />
-          <Route exact path ="/sidebar"component={SideBar} />
-        </Switch>
-              </div>
+          <div className='header'>
+            <h3 className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}> Main header </h3>
           </div>
+          <div className='content'>
+            <h3>Main content</h3><br/>
+            <Switch>
+              <Route exact path="/" component={() => <Login loginCheck={this.loginCheck} />} />
+              <Route exact path="/signup" component={() => <SignUp loginCheck={this.loginCheck} />} />
+              <Route exact path ="/search"component={Search} />
+              <Route exact path ="/profile"component={Profile} />
+              <Route exact path ="/sidebar"component={SideBar} />
+            </Switch>
+          </div>
+        </div>
+
         {this.state.backToLogin? <Redirect to={this.state.backToLogin}/>:console.log("place holder")}
-        
         {this.state.login?
+
         <div id='right' className={rightOpen} >
-        <div className='icon'
-             onClick={this.toggleSidebar} >
-             &equiv;
+          <div className='icon' onClick={this.toggleSidebar}> &equiv;
         </div>
         
         <div className={`sidebar ${rightOpen}`} >
