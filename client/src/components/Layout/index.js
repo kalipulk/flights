@@ -23,7 +23,7 @@ class Layout extends Component {
         switch (this.props.layout) {
             case "left" : 
                 return(
-                <div id='left' className={this.state.leftOpen} >
+                <div id='left' className={leftOpen} >
                     <div className='icon'onClick={this.toggleSidebar}>
                         &equiv;
                     </div>
@@ -40,9 +40,9 @@ class Layout extends Component {
             )
             case "right" :
                 return (
-                    <div id='right' className={this.state.rightOpen} >
+                    <div id='right' className={rightOpen} >
                             <div className='icon' onClick={this.toggleSidebar}> 
-                                &equiv;
+                            <i class="fas fa-user-circle"></i>
                             </div>
                         <div className={`sidebar ${rightOpen}`} >
                             <div className='header'>
