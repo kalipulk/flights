@@ -5,6 +5,7 @@ import SearchResults from "../components/SearchResults";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
+import Button from "../components/Button"
 import API from "../utils/API";
 import { set } from "date-fns";
 import { da } from "date-fns/locale";
@@ -207,13 +208,10 @@ class Search extends Component {
                     />
                 </div>
                 <div className="pull-right">
-                    <button
-                        onClick={this.handleFormSubmit}
-                        type="submit"
-                        className="btn btn-lg btn-primary float-right"
-                        >
-                        Search
-                    </button>
+                    <Button
+                        click={this.handleFormSubmit}
+                        title="Search"
+                    />
                 </div>
             </form>
             

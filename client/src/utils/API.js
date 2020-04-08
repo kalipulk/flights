@@ -36,10 +36,19 @@ export default {
         return axios.get("api/flights/" + id);
     },
     getMyList: function(id){
+
         return axios.get("api/packingList/"+id);
     },
     removeFromList: function(id){
+
         return axios.delete("api/packingList/"+id)
+    },
+    buyFromWishList: function(id) {
+
+        return axios.put("/api/purchase/" + id);
+    },
+    removeWishList: function(id) {
+        return axios.delete("/api/purchase/" + id);
     }
 
 }
