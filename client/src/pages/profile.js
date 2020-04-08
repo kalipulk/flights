@@ -6,6 +6,10 @@ import PackingListForm from "../components/PackingListForm";
 import API from "../utils/API";
 
 class Profile extends Component {
+    constructor(props){
+        super(props)
+       this.flights = () => props.flights(localStorage.getItem("id")) 
+      }
     state = {
         email: "",
         flights: [],
@@ -13,6 +17,7 @@ class Profile extends Component {
     };
     packingListAdd = listData =>{
         API.addToList(listData).then(res =>{
+            this.flights(JSON.parse(localStorage.getItem("id")))
             console.log("Added new Item")
         })
     }
@@ -24,21 +29,28 @@ class Profile extends Component {
         
       };
       handleFormSubmit = (event, id) => {
+          
         event.preventDefault();
         const listData ={
             items:this.state.item,
-            // FlightId:id
+            FlightId:id
         }
-        console.log(listData)
+      
         
-        // this.packingListAdd(listData);
+        this.packingListAdd(listData);
         
       };
 
     componentDidMount() {
         this.getEmail();
         this.getFlights();
+        
     }
+    // componentDidUpdate = ()=>{
+    
+    //     this.flights(JSON.parse(localStorage.getItem("id")))
+       
+    //   }
 
     getEmail = () => {
         const id = JSON.parse(localStorage.getItem("id"));

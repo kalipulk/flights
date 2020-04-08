@@ -42,7 +42,7 @@ export default {
         return axios.delete("api/packingList/"+id)
     },
     addToList: function(listData){
-        return axios.post("api/packingList/"+listData)
+        return axios.post("api/packingList",listData)
     }
 
 }

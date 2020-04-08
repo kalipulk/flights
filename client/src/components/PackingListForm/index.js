@@ -1,6 +1,7 @@
 import React from "react";
 
 function PackingListForm (props){
+    
     return(
         <form>
         <div className="form-group">
@@ -20,7 +21,7 @@ function PackingListForm (props){
         </div>
         <div className="pull-right">
           <button
-            onClick={props.handleFormSubmit}
+            onClick={(events)=>props.handleFormSubmit(events, props.id)}
             type="submit"
             
           >
