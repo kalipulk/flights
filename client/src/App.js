@@ -91,14 +91,10 @@ class App extends React.Component {
   
     return (
     <Router>
-
      
       <div id='layout'>
         <Layout layout="left"/>
 
-
-
-        
         <div id='main'>
           <div className='header'>
             <h3 className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}> Main header </h3>
@@ -118,18 +114,7 @@ class App extends React.Component {
         {this.state.backToLogin? <Redirect to={this.state.backToLogin}/>:console.log("place holder")}
         {this.state.login?
 
-        <div id='right' className={rightOpen} >
-          <div className='icon' onClick={this.toggleSidebar}> &equiv;
-        </div>
-        
-        <div className={`sidebar ${rightOpen}`} >
-            <div className='header'>
-              <h3 className='title'>
-                Logged In Header
-              </h3>
-            </div>
-            <div className='content'>
-                <h3>Purchased Flights</h3><br/>
+        <Layout layout="right"> 
                 {this.state.userFlights.map(flight =>{
                  
                   if(flight[0].purchased === true ){
@@ -148,38 +133,12 @@ class App extends React.Component {
                           }):<p>No Packing Items Added</p>}
                       </div>
                     )
-
-                 
                   }
                 })}
                 <button onClick ={()=>this.logout()}>LogOut</button> 
-               
-          </div>
-    </div>
-    
-  
-  </div>
+        </Layout>  
         :
-        <div id='right' className={rightOpen} >
-              <div className='icon'
-                   onClick={this.toggleSidebar} >
-                   &equiv;
-              </div>
-              
-              <div className={`sidebar ${rightOpen}`} >
-                  <div className='header'>
-                    <h3 className='title'>
-                     Logged Out header
-                    </h3>
-                  </div>
-                  <div className='content'>
-                      <h3>Right content</h3><br/>
-                    
-                </div>
-          </div>
-          
-        
-        </div>
+        <Layout layout="right" />
         }
         
       </div>
