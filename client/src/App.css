@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  color: #282c34;
 }
 
 .App-logo {
@@ -40,8 +41,8 @@
 
 
 /* FONTS AND COLORS
-font-family: 'Lato', sans-serif;
 font-family: 'Poiret One', cursive;
+font-family: 'Montserrat', sans-serif;
 #006372	(0,99,114)
 #007e6e	(0,126,110)
 #00a16c	(0,161,108)

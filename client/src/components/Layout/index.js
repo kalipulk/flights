@@ -46,12 +46,12 @@ class Layout extends Component {
                             </div>
                         <div className={`sidebar ${rightOpen}`} >
                             <div className='header'>
-                                <h3 className='title'>
+                                <div className='title'>
                                 Logged In Header
-                                </h3>
+                                </div>
                             </div>
                             <div className='content'>
-                                <h3>Purchased Flights</h3><br/>
+                                <div>Purchased Flights</div><br/>
                                 {this.props.children}
                             </div>
                         </div> 

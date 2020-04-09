@@ -116,6 +116,7 @@ class App extends React.Component {
 
         {this.state.backToLogin? <Redirect to={this.state.backToLogin}/>:console.log("place holder")}
         {this.state.login?
+
         <Layout layout="right"> 
           {this.state.userFlights.map(flight =>{
             if(flight[0].purchased === true ){
@@ -136,17 +137,13 @@ class App extends React.Component {
               )
             }
           })}
+
           <button onClick ={()=>this.logout()}>LogOut</button> 
         </Layout>  
         :
         <Layout layout="right" />
         }
-
-       
       </div>
-
-
-
     </Router>
   );
 }

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import ImageSlide from "./ImageSlide";
 import Arrow from "./Arrow";
-
-// import "./style.css";
+import "./style.css";
 
 const imgURLs = [
     "https://unsplash.com/photos/XuQGqCBpNGk/download",
@@ -49,10 +48,13 @@ class Carousel extends Component {
 
     render () {
         return (
-        <div className="carousel">
-            <Arrow direction="left" clickFunction={ this.previousSlide } glyph="&#9664;" />
-            <ImageSlide url={ imgURLs[this.state.currentImageIndex] } />
-            <Arrow direction="right" clickFunction={ this.nextSlide } glyph="&#9654;" />
+        <div className="container">
+            <div id="caroHeader">INSPIRATION FOR YOUR NEXT ADVENTURE...</div>    
+            <div className="carousel">
+                <Arrow direction="left" clickFunction={ this.previousSlide } glyph="&#9664;"/>
+                <ImageSlide url={ imgURLs[this.state.currentImageIndex] } />
+                <Arrow direction="right" clickFunction={ this.nextSlide } glyph="&#9654;" />
+            </div>
         </div>
         );
     }
