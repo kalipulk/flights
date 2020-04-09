@@ -1,9 +1,9 @@
 .image-slide {
     background-size: cover;
     background-position: center;
-    display: flex;
+    display: inline-block;
     flex-grow: inherit;
     justify-content: center;
     height: 300px;
-    width: 800px;
+    width: 710px;
 }

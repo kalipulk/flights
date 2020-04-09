@@ -20,6 +20,14 @@ class Layout extends Component {
         let leftOpen = this.state.leftOpen ? 'open' : 'closed';
         let rightOpen = this.state.rightOpen ? 'open' : 'closed';
 
+        const style= {
+            icon:  {
+                fontWeight: '500',
+                fontSize: '.9em',
+                paddingRight: '10px' 
+            }
+        }
+
         switch (this.props.layout) {
             case "left" : 
                 return(
@@ -42,16 +50,16 @@ class Layout extends Component {
                 return (
                     <div id='right' className={rightOpen} >
                             <div className='icon' onClick={this.toggleSidebar}> 
-                            <i class="fas fa-user-circle fa-lg"></i>
+                            <i style={style.icon} class="fas fa-user-circle fa-lg customIcon"></i>
                             </div>
                         <div className={`sidebar ${rightOpen}`} >
                             <div className='header'>
-                                <div className='title'>
+                                <h3 className='title'>
                                 Logged In Header
-                                </div>
+                                </h3>
                             </div>
                             <div className='content'>
-                                <div>Purchased Flights</div><br/>
+                                <h3>Purchased Flights</h3><br/>
                                 {this.props.children}
                             </div>
                         </div> 

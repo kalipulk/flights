@@ -14,6 +14,7 @@
     margin: 10px;
     justify-content: center;
     order: 2;
+    min-width: 750px;
 }
 
 #caroHeader {

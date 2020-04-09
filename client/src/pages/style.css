@@ -1,11 +1,9 @@
-
 form {
     font-family: 'Montserrat', sans-serif;
     margin: 20px;
     padding: 10px;
     outline: none;
     width: 75%;
-    
 }
 
 input {
@@ -32,5 +30,31 @@ button:hover {
     background-color: #007e6e;
     border-radius: 3px;
     border: solid #666 1px;
+}
 
+/* SIGN UP CSS */
+#sign-up-head {
+    margin: auto;
+}
+
+#sign-up-head {
+    font-family: 'Poiret One', cursive;
+    font-size: 28px
+}
+
+.signup-Button {
+    border-radius: 3px;
+    border: solid #666 1px;
+    font-family: 'Poiret One', cursive;
+    font-size: 18px;
+    /* float: right; */
+    background-color: #00a16c;
+    color: #fff;
+    padding: 10px;
+    margin: 5px;}
+
+.signup-Button:hover {
+    background-color: #007e6e;
+    border-radius: 3px;
+    border: solid #666 1px;
 }

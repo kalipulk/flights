@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../components/Nav";
-import Jumbotron from "../components/Jumbotron";
 import SearchResults from "../components/SearchResults";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -131,8 +129,6 @@ class Search extends Component {
         return(
             
         <div>
-            <Jumbotron></Jumbotron>
-            <Nav></Nav>
             {this.state.searchDone?
             
             this.state.searchList.map(search =>{
