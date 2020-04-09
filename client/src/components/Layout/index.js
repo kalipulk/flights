@@ -50,12 +50,11 @@ class Layout extends Component {
                 return (
                     <div id='right' className={rightOpen} >
                             <div className='icon' onClick={this.toggleSidebar}> 
-                            <i style={style.icon} class="fas fa-user-circle fa-lg customIcon"></i>
+                                <i style={style.icon} className="fas fa-suitcase-rolling"></i>
                             </div>
                         <div className={`sidebar ${rightOpen}`} >
                             <div className='header'>
                                 <div className='title'>
-                                LOGGED IN HEADER
                                 </div>
                             </div>
                             <div className='content'>

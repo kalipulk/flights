@@ -32,28 +32,28 @@ class Nav extends Component {
   
     render() {
       return (
-        <nav className="navbarMain">
+        <div className="navbarMain">
           <Link className="navbarBrand" to="/"></Link>
           <div className={`${this.state.open ? "" : ""}navbar-collapse`} id="navbarNav">
             <div className="navbarNav">
               <div className="navItem">
                   <Link onClick={this.toggleNav} className={window.location.pathname === "/signup" ? "nav-link active" : "nav-link"} to="/signup">
-                    SIGN UP
+                    <div className="nav-icon">SIGN UP <i class="fas fa-user-plus fa-sm"></i></div>
                   </Link>
                 </div>
               <div className="navItem">
                 <Link onClick={this.toggleNav} className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"} to="/search">
-                  SEARCH
+                  <div className="nav-icon">SEARCH <i class="fas fa-search-location fa-sm" ></i></div>
                 </Link>
               </div>
               <div className="navItem">
                 <Link onClick={this.toggleNav} className={window.location.pathname === "/profile" ? "nav-link active" : "nav-link"} to="/profile" >
-                  PROFILE
+                  <div className="nav-icon">PROFILE <i class="fas fa-id-card fa-sm" ></i></div>
                 </Link>
               </div>
             </div>
           </div>
-        </nav>
+        </div>
       );
     }
   }

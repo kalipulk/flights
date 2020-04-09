@@ -7,7 +7,9 @@ form {
 }
 
 input {
+    color: #666;
     font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
     border: 1px solid #007e6e;
     outline: none;
     padding: 10px;
@@ -57,4 +59,25 @@ button:hover {
     background-color: #007e6e;
     border-radius: 3px;
     border: solid #666 1px;
+}
+/* SEARCH PAGE CSS */
+
+.text-title {
+    font-family: 'Poiret One', cursive;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.city-section {
+    display: inline-block;
+    float: left;
+    margin: 15px;
+    padding:15px;
+}
+
+.date-section {
+    display: inline-block;
+    float: left;
+    margin: 15px;
+    padding:15px;
 }

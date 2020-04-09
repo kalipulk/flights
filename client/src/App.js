@@ -97,11 +97,9 @@ class App extends React.Component {
 
         <div id='main'>
           <div className='header'>
-            <h3 className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}> Main header </h3>
+            <div className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}> MAIN SITE HEADER </div>
           </div>
-          <div className='content'>
-            <h3>Main content</h3><br/>
-            
+          <div className='content'>            
             <Switch>
               <Route exact path="/" component={() => <Login loginCheck={this.loginCheck} />} />
               <Route exact path="/signup" component={() => <SignUp loginCheck={this.loginCheck} />} />
@@ -138,7 +136,7 @@ class App extends React.Component {
             }
           })}
 
-          <button onClick ={()=>this.logout()}>LogOut</button> 
+          <button onClick ={()=>this.logout()}>LOG OUT</button> 
         </Layout>  
         :
         <Layout layout="right" />

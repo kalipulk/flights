@@ -162,53 +162,58 @@ class Search extends Component {
             )})
                 :<form>
                 <div className="form-group">
-                    <p>Departing From:</p>
-                    <input
-                        className="form-control"
-                        id="departure"
-                        type="text"
-                        value={this.state.departure}
-                        placeholder="Departing From"
-                        name="departure"
-                        onChange={this.handleInputChange}
-                        required
-                    />
-                    <br></br>
-                    <p>Arriving At:</p>
-                    <input
-                        className="form-control"
-                        id="destination"
-                        type="text"
-                        value={this.state.destination}
-                        placeholder="Arriving At"
-                        name="destination"
-                        onChange={this.handleInputChange}
-                        required
-                    />
-                    <br></br>
-                    <p>Departure Date:</p>
-                    <DatePicker
-                        selected={this.state.departureDate}
-                        onChange={this.handleDepartureDateChange}
-                        dateFormat='yyyy-MM-dd'
-                        required
-                    />
-                    <br></br>
-                    <p>Return Date:</p>
-                    <DatePicker
-                        selected={this.state.returnDate}
-                        onChange={this.handleReturnDateChange}
-                        dateFormat='yyyy-MM-dd'
-                        required
-                    />
+                    <div className="city-section">
+                        <div className="text-title">ORIGIN:</div>
+                            <input
+                                className="form-control"
+                                id="departure"
+                                type="text"
+                                value={this.state.departure}
+                                placeholder="City"
+                                name="departure"
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                    
+                        <div className="text-title">DESTINATION:</div>
+                            <input
+                                className="form-control"
+                                id="destination"
+                                type="text"
+                                value={this.state.destination}
+                                placeholder="City"
+                                name="destination"
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                    </div>
+
+                    <div className="date-section">
+                        <div className="text-title">DEPARTURE DATE:</div>
+                        <DatePicker
+                            selected={this.state.departureDate}
+                            onChange={this.handleDepartureDateChange}
+                            dateFormat='yyyy-MM-dd'
+                            required
+                        />
+ 
+                        <div className="text-title">RETURN DATE:</div>
+                        <DatePicker
+                            selected={this.state.returnDate}
+                            onChange={this.handleReturnDateChange}
+                            dateFormat='yyyy-MM-dd'
+                            required
+                        />
+                        </div>
                 </div>
+
                 <div className="pull-right">
                     <button
                         onClick={this.handleFormSubmit}
                         type="submit"
                         className="btn btn-lg btn-primary float-right"
                         >
-                        Search
+                        SEARCH
                     </button>
                 </div>
             </form>
