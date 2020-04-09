@@ -1,0 +1,23 @@
+.navItem {
+    font-family: 'Poiret One', cursive;
+    font-size: 28px;
+    color: #fff;
+    padding: 20px 0;
+    margin: 15px;
+}
+
+.navItem a {
+    text-decoration: none;
+    color: #00d871;
+    padding: 20px 0;
+    margin: 15px;
+
+}
+
+.navItem a :hover{
+    text-decoration: none;
+    color: 	#006372;
+    padding: 20px 0;
+    margin: 15px;
+
+}

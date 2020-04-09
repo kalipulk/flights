@@ -35,16 +35,16 @@ class Layout extends Component {
                     <div className='icon'onClick={this.toggleSidebar}>
                         &equiv;
                     </div>
-                <div className={`sidebar ${leftOpen}`} >
-                  <div className='content'> PLACEHOLDER
-                    <div className='header'>
-                      <div>
-                        <Nav />
-                      </div>
+                    <div className={`sidebar ${leftOpen}`} >
+                        <div className='content'>
+                            <div className='header'>
+                                <div>
+                                    <Nav />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-            </div>
             )
             case "right" :
                 return (
@@ -54,12 +54,12 @@ class Layout extends Component {
                             </div>
                         <div className={`sidebar ${rightOpen}`} >
                             <div className='header'>
-                                <h3 className='title'>
-                                Logged In Header
-                                </h3>
+                                <div className='title'>
+                                LOGGED IN HEADER
+                                </div>
                             </div>
                             <div className='content'>
-                                <h3>Purchased Flights</h3><br/>
+                                <div>Purchased Flights</div><br/>
                                 {this.props.children}
                             </div>
                         </div> 
