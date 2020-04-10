@@ -55,30 +55,6 @@ class Signup extends Component {
                 <div id="sign-up-header">SIGN UP</div>
                 <form>
                     <div className="form-group">
-                        {/* <p>First Name:</p>
-                        <input
-                            className="form-control"
-                            id="first-name"
-                            type="text"
-                            value={this.state.firstName}
-                            placeholder="First Name"
-                            name="firstName"
-                            onChange={this.handleInputChange}
-                            required
-                        /> */}
-                        {/* <br></br>
-                        <p>Last Name:</p>
-                        <input
-                            className="form-control"
-                            id="last-name"
-                            type="text"
-                            value={this.state.lastName}
-                            placeholder="Last Name"
-                            name="lastName"
-                            onChange={this.handleInputChange}
-                            required
-                        />
-                        <br></br> */}
                         <input
                             className="form-control"
                             id="email-address"

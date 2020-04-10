@@ -27,15 +27,10 @@ if (process.env.NODE_ENV === "production") {
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(function (req, res, next) {
-//   console.log(req.body)
-// })
-// Add routes, both API and view
+
 
 app.use(routes);
-// routes.initialize(app);
 
-// Connect to the Mongo DB
 db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
