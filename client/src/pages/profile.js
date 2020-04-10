@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-
 import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
 import PurchasedResults from "../components/PurchasedResults";
 import PackingListForm from "../components/PackingListForm";
 import Button from "../components/Button";
-
 import API from "../utils/API";
 
 class Profile extends Component {
@@ -30,7 +28,6 @@ class Profile extends Component {
         this.setState({
           [name]: value
         });
-        
       };
       handleFormSubmit = (event, id) => {
           
@@ -39,21 +36,13 @@ class Profile extends Component {
             items:this.state.item,
             FlightId:id
         }
-      
-        
         this.packingListAdd(listData);
-        
       };
 
     componentDidMount() {
         this.getEmail();
         this.getFlights();
-        
-        
     }
-   
-    
-
     getEmail = () => {
         const id = JSON.parse(localStorage.getItem("id"));
         API.getEmailAddress(id)
@@ -88,16 +77,12 @@ class Profile extends Component {
 
     removeFromWishList = id => {
         const flight = this.state.flights.find(flight => flight.id === id);
-        console.log(id);
-        console.log("clicked");
         API.removeWishList(flight.id)
         .then(res => this.getFlights())
         .catch(err => console.log(err));
     }
 
         render() {
-
-
             return (
                 <div>
                     <Jumbotron></Jumbotron>
@@ -122,21 +107,17 @@ class Profile extends Component {
                                             price={flight.price}
                                             departureDate={flight.departureDate}
                                             departureTime={flight.departureTime}
-
                                             returnDepartureTime={flight.returnDepartureTime}
                                             returnDepartureDate={flight.returnDepartureDate}
                                         />
                                         <PackingListForm
-                                           
                                             id={flight.id}
                                             handleInputChange={this.handleInputChange}
                                             handleFormSubmit={this.handleFormSubmit}
-                                            item={this.state.item}/>
-
+                                            item={this.state.item}
                                         />
                                         <hr></hr>
                                         <br></br>
-
                                     </div>
                                 );
                             }
@@ -145,7 +126,6 @@ class Profile extends Component {
                     <br></br>
                     <h4>Wish List:</h4>
                     {this.state.flights.map(flight => {
-
                             if (flight.purchased === false) {
                                 return (
                                     <div>
