@@ -208,11 +208,7 @@ class Search extends Component {
                 </div>
 
                 <div className="pull-right">
-                    <button
-                        onClick={this.handleFormSubmit}
-                        type="submit"
-                        className="btn btn-lg btn-primary float-right"
-                        >
+                    <button onClick={this.handleFormSubmit} type="submit"  className="btn btn-lg btn-primary float-right">
                         SEARCH
                     </button>
                 </div>

@@ -2,4 +2,11 @@
     margin: 20px;
     padding: 10px;
     text-align: center;
+    border: solid 1px #666;
+    border-radius: 5px;
+}
+
+#trip {
+    font-family: 'Poiret One', cursive;
+    font-size: 16px;
 }

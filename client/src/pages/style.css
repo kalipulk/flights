@@ -70,14 +70,14 @@ button:hover {
 
 .city-section {
     display: inline-block;
-    float: left;
+    width: 80%;
     margin: 15px;
     padding:15px;
 }
 
 .date-section {
     display: inline-block;
-    float: left;
+    width: 80%;
     margin: 15px;
     padding:15px;
 }

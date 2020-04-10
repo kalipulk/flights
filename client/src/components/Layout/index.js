@@ -22,7 +22,6 @@ class Layout extends Component {
 
         const style= {
             icon:  {
-                fontWeight: '500',
                 fontSize: '.9em',
                 paddingRight: '10px' 
             }
@@ -50,7 +49,7 @@ class Layout extends Component {
                 return (
                     <div id='right' className={rightOpen} >
                             <div className='icon' onClick={this.toggleSidebar}> 
-                                <i style={style.icon} className="fas fa-suitcase-rolling"></i>
+                                <i style={style.icon} className="fas fa-suitcase-rolling fa-xs"></i>
                             </div>
                         <div className={`sidebar ${rightOpen}`} >
                             <div className='header'>
