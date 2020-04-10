@@ -92,14 +92,16 @@ class App extends React.Component {
   
     return (
     <Router>
-     
+      <Jumbotron />
+
       <div id='layout'>
         <Layout layout="left"/>
 
         <div id='main'>
 
           <div className='header'>
-            <div className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}> MAIN SITE HEADER </div>
+            <div className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}> 
+            </div>
           </div>
           <div className='content'>            
             <Switch>
