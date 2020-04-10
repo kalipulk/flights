@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../components/Nav";
-import Jumbotron from "../components/Jumbotron";
 import Button from "../components/Button";
 import API from "../utils/API";
 import {BrowserRouter as Router, Redirect,} from 'react-router-dom';
@@ -55,7 +53,7 @@ class Login extends Component {
         
         return(
         <div>
-          {/* <Jumbotron/> */}
+         
           <form className="form-container">
           <div className="form-group">
             <label htmlFor="email"></label>
