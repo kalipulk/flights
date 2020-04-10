@@ -14,7 +14,7 @@ function SearchResults (props){
                     <div>{props.departureAirport}</div>
                 <div className="text-details">Arriving At:</div> 
                     <div>{props.arrivalAirport}</div>
-            <div/> 
+            </div> 
 
             <div className="date-time">
                 <div className="departing-info">

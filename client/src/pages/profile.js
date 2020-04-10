@@ -46,15 +46,15 @@ class Profile extends Component {
           return(
               <div>
               
-                <h4>Profile Details</h4>
+                <div>Profile Details</div>
                 <p>Email Address: {this.state.email} </p>
                 <br></br>
                 <br></br>
-                <h4>Purchased Flights:</h4>
+                <div>Purchased Flights:</div>
 
                 <br></br>
                 <br></br>
-                <h4>Wish List:</h4>
+                <div>Wish List:</div>
 
             </div>
           )
