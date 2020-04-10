@@ -69,6 +69,7 @@ class Search extends Component {
         }
         // console.log(purchasedFlights);
         API.buyFLight(purchasedFlights).then(response=>{
+            console.log("test");
            this.setState({searchDone:false});
         
            emailData.arrivalCity=response.data.arrivalCity;
