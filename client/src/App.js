@@ -56,6 +56,7 @@ class App extends React.Component {
   flights =(id)=>{
     const usersFlightArray = []
     API.getMyFlights(id).then((response)=>{
+      console.log("help!", response)
       for(let i = 0;i <response.data[0].Flights.length;i++){
         if(response.data[0].Flights[i].purchased){
           API.getMyList(response.data[0].Flights[i].id).then(response =>{
@@ -96,6 +97,7 @@ class App extends React.Component {
         <Layout layout="left"/>
 
         <div id='main'>
+
           <div className='header'>
             <div className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}> MAIN SITE HEADER </div>
           </div>
@@ -104,11 +106,12 @@ class App extends React.Component {
               <Route exact path="/" component={() => <Login loginCheck={this.loginCheck} />} />
               <Route exact path="/signup" component={() => <SignUp loginCheck={this.loginCheck} />} />
               <Route exact path ="/search"component={Search} />
-              <Route exact path ="/profile"component={Profile} />
+              <Route exact path ="/profile"component={() => <Profile flights={this.flights} />} />
               <Route exact path ="/sidebar"component={SideBar} />
             </Switch>
 
             <Carousel />
+
           </div>
         </div>
 
