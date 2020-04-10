@@ -105,8 +105,8 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={() => <Login loginCheck={this.loginCheck} />} />
               <Route exact path="/signup" component={() => <SignUp loginCheck={this.loginCheck} />} />
-              <Route exact path ="/search"component={Search} />
-              <Route exact path ="/profile"component={() => <Profile flights={this.flights} />} />
+              <Route exact path ="/search"component={() => <Search  flights={this.flights} />} />
+              <Route exact path ="/profile"component={() => <Profile  flights={this.flights} />} />
               <Route exact path ="/sidebar"component={SideBar} />
             </Switch>
 

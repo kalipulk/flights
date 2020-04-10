@@ -12,6 +12,7 @@ class Profile extends Component {
     constructor(props){
         super(props)
        this.flights = () => props.flights(localStorage.getItem("id")) 
+       
       }
     state = {
         email: "",
@@ -48,7 +49,9 @@ class Profile extends Component {
         this.getEmail();
         this.getFlights();
         
+        
     }
+   
     
 
     getEmail = () => {
