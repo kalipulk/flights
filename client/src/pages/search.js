@@ -10,6 +10,11 @@ import { da } from "date-fns/locale";
 
 
 class Search extends Component {
+    constructor(props){
+        super(props)
+       this.flights = () => props.flights(localStorage.getItem("id")) 
+       
+      }
 
     state = {
         departure: "",
@@ -21,6 +26,7 @@ class Search extends Component {
         searchList:[],
         searchDone:false
     }
+    
 
     handleDepartureDateChange = date => {
         this.setState({
@@ -69,6 +75,7 @@ class Search extends Component {
         }
         // console.log(purchasedFlights);
         API.buyFLight(purchasedFlights).then(response=>{
+            console.log("test");
            this.setState({searchDone:false});
         
            emailData.arrivalCity=response.data.arrivalCity;
@@ -85,6 +92,7 @@ class Search extends Component {
             
             emailData.email=response.data.email
             this.email(emailData);
+            this.flights(JSON.parse(localStorage.getItem("id")))
             
         }))
     }
