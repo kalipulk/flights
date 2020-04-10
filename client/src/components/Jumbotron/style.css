@@ -19,4 +19,10 @@
     padding-top: 15px;
 }
 
+.fa-telegram-plane {
+    background: -webkit-linear-gradient(#006372, #007e6e,#00a16c,#00bf6d,#00d871);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 

@@ -170,7 +170,7 @@ class Search extends Component {
                 
             )})
                 :<form>
-                <div className="form-group">
+                <div className="search-form-group">
                     <div className="city-section">
                         <div className="text-title">ORIGIN:</div>
                             <input
