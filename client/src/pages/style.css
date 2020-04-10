@@ -102,3 +102,10 @@ button:hover {
     margin: 10px;
     padding: 10px;
 }
+
+.wish-list-head {
+    font-family: 'Poiret One', cursive;
+    margin: 10px;
+    padding: 10px;
+    font-size: 18px;
+}

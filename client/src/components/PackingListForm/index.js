@@ -3,7 +3,7 @@ import React from "react";
 function PackingListForm (props){
     
     return(
-        <form>
+        <div className="packing-list-container">
           <div className="form-group">
             <div>
               <label htmlFor="Query" className="item-label">
@@ -29,7 +29,7 @@ function PackingListForm (props){
             ADD TO PACKING LIST
           </button>
         </div>
-      </form>
+      </div>
     )
 }
 

@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  color: #282c34;
+  color: #006372;
 }
 
 .App-logo {
@@ -30,6 +30,7 @@
   color: #007e6e;
   text-decoration: none;
 }
+
 
 @keyframes App-logo-spin {
   from {

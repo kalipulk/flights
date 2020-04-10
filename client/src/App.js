@@ -126,16 +126,16 @@ class App extends React.Component {
             // console.log(flight[0].PackingLists[0].id)
               return (
                 <div>
-                  <h6 key={flight[0].id}>{flight[0].arrivalCity.replace(/_/g," ")} to {flight[0].departureCity.replace(/_/g," ")}</h6>
+                  <div className="flights-on-right" key={flight[0].id}>{flight[0].arrivalCity.replace(/_/g," ")} to {flight[0].departureCity.replace(/_/g," ")}</div>
                     {flight[0].PackingLists.length>0?
                     flight[0].PackingLists.map(item =>{
                     // console.log(item);
                       return (
                         <div>
-                          <p key={item.id}>{item.items}</p> <button onClick={()=>this.deleteFromList(item.id)}>remove</button>
+                          <p key={item.id}>{item.items}</p> <button onClick={()=>this.deleteFromList(item.id)}>REMOVE</button>
                         </div>
                       )
-                    }):<p>No Packing Items Added</p>}
+                    }):<div>NOTHING ADDED TO PACKING LIST YET</div>}
                 </div>
               )
             }
