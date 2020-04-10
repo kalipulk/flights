@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+
 import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
 import PurchasedResults from "../components/PurchasedResults";
 import PackingListForm from "../components/PackingListForm";
 import Button from "../components/Button";
+
 import API from "../utils/API";
 
 class Profile extends Component {
@@ -47,11 +49,7 @@ class Profile extends Component {
         this.getFlights();
         
     }
-    // componentDidUpdate = ()=>{
     
-    //     this.flights(JSON.parse(localStorage.getItem("id")))
-       
-    //   }
 
     getEmail = () => {
         const id = JSON.parse(localStorage.getItem("id"));
@@ -95,6 +93,7 @@ class Profile extends Component {
     }
 
         render() {
+
 
             return (
                 <div>

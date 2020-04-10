@@ -1,8 +1,83 @@
 form {
-    font-family: 'Poiret One', cursive;
+    font-family: 'Montserrat', sans-serif;
+    margin: 20px;
+    padding: 10px;
+    outline: none;
+    width: 75%;
 }
 
 input {
-    font-family: 'Lato', sans-serif;
+    color: #666;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
     border: 1px solid #007e6e;
+    outline: none;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+button {
+    border-radius: 3px;
+    border: solid #666 1px;
+    font-family: 'Poiret One', cursive;
+    font-size: 18px;
+    /* float: right; */
+    background-color: #00a16c;
+    color: #fff;
+    padding: 10px;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #007e6e;
+    border-radius: 3px;
+    border: solid #666 1px;
+}
+
+/* SIGN UP CSS */
+#sign-up-head {
+    margin: auto;
+}
+
+#sign-up-head {
+    font-family: 'Poiret One', cursive;
+    font-size: 28px
+}
+
+.signup-Button {
+    border-radius: 3px;
+    border: solid #666 1px;
+    font-family: 'Poiret One', cursive;
+    font-size: 18px;
+    /* float: right; */
+    background-color: #00a16c;
+    color: #fff;
+    padding: 10px;
+    margin: 5px;}
+
+.signup-Button:hover {
+    background-color: #007e6e;
+    border-radius: 3px;
+    border: solid #666 1px;
+}
+/* SEARCH PAGE CSS */
+
+.text-title {
+    font-family: 'Poiret One', cursive;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.city-section {
+    display: inline-block;
+    width: 80%;
+    margin: 15px;
+    padding:15px;
+}
+
+.date-section {
+    display: inline-block;
+    width: 80%;
+    margin: 15px;
+    padding:15px;
 }

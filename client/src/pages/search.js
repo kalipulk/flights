@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../components/Nav";
-import Jumbotron from "../components/Jumbotron";
 import SearchResults from "../components/SearchResults";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -132,8 +130,6 @@ class Search extends Component {
         return(
             
         <div>
-            <Jumbotron></Jumbotron>
-            <Nav></Nav>
             {this.state.searchDone?
             
             this.state.searchList.map(search =>{
@@ -167,51 +163,57 @@ class Search extends Component {
             )})
                 :<form>
                 <div className="form-group">
-                    <p>Departing From:</p>
-                    <input
-                        className="form-control"
-                        id="departure"
-                        type="text"
-                        value={this.state.departure}
-                        placeholder="Departing From"
-                        name="departure"
-                        onChange={this.handleInputChange}
-                        required
-                    />
-                    <br></br>
-                    <p>Arriving At:</p>
-                    <input
-                        className="form-control"
-                        id="destination"
-                        type="text"
-                        value={this.state.destination}
-                        placeholder="Arriving At"
-                        name="destination"
-                        onChange={this.handleInputChange}
-                        required
-                    />
-                    <br></br>
-                    <p>Departure Date:</p>
-                    <DatePicker
-                        selected={this.state.departureDate}
-                        onChange={this.handleDepartureDateChange}
-                        dateFormat='yyyy-MM-dd'
-                        required
-                    />
-                    <br></br>
-                    <p>Return Date:</p>
-                    <DatePicker
-                        selected={this.state.returnDate}
-                        onChange={this.handleReturnDateChange}
-                        dateFormat='yyyy-MM-dd'
-                        required
-                    />
+                    <div className="city-section">
+                        <div className="text-title">ORIGIN:</div>
+                            <input
+                                className="form-control"
+                                id="departure"
+                                type="text"
+                                value={this.state.departure}
+                                placeholder="City"
+                                name="departure"
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                    
+                        <div className="text-title">DESTINATION:</div>
+                            <input
+                                className="form-control"
+                                id="destination"
+                                type="text"
+                                value={this.state.destination}
+                                placeholder="City"
+                                name="destination"
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                    </div>
+
+                    <div className="date-section">
+                        <div className="text-title">DEPARTURE DATE:</div>
+                        <DatePicker
+                            selected={this.state.departureDate}
+                            onChange={this.handleDepartureDateChange}
+                            dateFormat='yyyy-MM-dd'
+                            required
+                        />
+ 
+                        <div className="text-title">RETURN DATE:</div>
+                        <DatePicker
+                            selected={this.state.returnDate}
+                            onChange={this.handleReturnDateChange}
+                            dateFormat='yyyy-MM-dd'
+                            required
+                        />
+                        </div>
                 </div>
+
                 <div className="pull-right">
-                    <Button
-                        click={this.handleFormSubmit}
-                        title="Search"
-                    />
+
+                    <button onClick={this.handleFormSubmit} type="submit"  className="btn btn-lg btn-primary float-right">
+                        SEARCH
+                    </button>
+
                 </div>
             </form>
             

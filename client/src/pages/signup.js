@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import Nav from "../components/Nav";
-import Jumbotron from "../components/Jumbotron";
 import {BrowserRouter as Router, Redirect,} from "react-router-dom";
 import API from "../utils/API";
-
 
 class Signup extends Component {
     constructor(props){
@@ -15,7 +12,6 @@ class Signup extends Component {
         lastName: "",
         emailAddress: "",
         password: "",
-
     };
 
     redirect() {
@@ -50,19 +46,13 @@ class Signup extends Component {
     };
    
       render() {
-          if (this.state.changePage) {
-                return <Redirect to={this.state.changePage} />
-          }
+        if (this.state.changePage) {
+            return <Redirect to={this.state.changePage} />
+        }
 
-          return(
-              <div>
-                <Jumbotron></Jumbotron>
-                <Nav></Nav>
-                <br></br>
-                <br></br>
-                <h2>Sign Up Here!</h2>
-                <br></br>
-                <br></br>
+        return(
+            <div id="sign-up-container">
+                <div id="sign-up-header">SIGN UP</div>
                 <form>
                     <div className="form-group">
                         {/* <p>First Name:</p>
@@ -89,7 +79,6 @@ class Signup extends Component {
                             required
                         />
                         <br></br> */}
-                        <p>Email Address:</p>
                         <input
                             className="form-control"
                             id="email-address"
@@ -100,14 +89,12 @@ class Signup extends Component {
                             onChange={this.handleInputChange}
                             required
                         />
-                        <br></br>
-                        <p>Password:</p>
                         <input
                             className="form-control"
                             id="password"
                             type="password"
                             value={this.state.password}
-                            placeholder="*****************"
+                            placeholder="********"
                             name="password"
                             onChange={this.handleInputChange}
                             required
@@ -117,9 +104,9 @@ class Signup extends Component {
                         <button
                         onClick={this.handleFormSubmit}
                         type="submit"
-                        className="btn btn-lg btn-primary float-right"
+                        className="signup-Button"
                         >
-                        Submit
+                        SUBMIT
                         </button>
                     </div>
                 </form>

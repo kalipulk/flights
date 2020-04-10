@@ -56,20 +56,20 @@ class Login extends Component {
         return(
         <div>
           {/* <Jumbotron/> */}
-          <form>
+          <form className="form-container">
           <div className="form-group">
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email"></label>
             <input
               onChange={this.handleInputChange}
               value={this.state.email}
               name="email"
               type="text"
               className="form-control"
-              placeholder="Enter email"
+              placeholder="Enter Email"
               id="email"
             />
             <br />
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password"></label>
             <input
               onChange={this.handleInputChange}
               value={this.state.password}
@@ -79,7 +79,7 @@ class Login extends Component {
               placeholder="Enter Password"
               id="password"
             />
-            <Button click={this.handleFormSubmit} title="Login"/>
+            <Button click={this.handleFormSubmit} title="LOGIN" className="login-button"/>
           </div>
         </form>
         

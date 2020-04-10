@@ -1,0 +1,17 @@
+.right-icon {
+    font-weight: 500px;
+    color: #000;
+}
+
+.icon {
+    right: 10px;
+}
+
+.customIcon {
+    font-weight: 500 !important;
+    font-size: .9em;
+}
+
+.leftOpen {
+    border-right: 1px solid #666;
+}
