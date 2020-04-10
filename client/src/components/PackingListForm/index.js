@@ -5,14 +5,15 @@ function PackingListForm (props){
     return(
         <form>
           <div className="form-group">
-            <div className="item-label">
-              <label htmlFor="Query">
-                Items to Pack
+            <div>
+              <label htmlFor="Query" className="item-label">
+                PACKING LIST FOR THIS TRIP
               </label>
             </div>
-            <div className="item-input">
+            <div >
               <input
                 className="form-control"
+                className="item-input"
                 id="Item"
                 type="text"
                 value={props.item}

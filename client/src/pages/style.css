@@ -81,3 +81,24 @@ button:hover {
     margin: 15px;
     padding:15px;
 }
+
+/* PROFILE PAGE CSS */
+
+.profile-container {
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+}
+
+.profile-head {
+    font-family: 'Poiret One', cursive;
+    font-size: 28px;
+    padding: 20px;
+    margin: 10px;
+}
+.profile-titles {
+    font-family: 'Poiret One', cursive;
+    font-size: 18px;
+    margin: 10px;
+    padding: 10px;
+}

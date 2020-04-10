@@ -53,7 +53,6 @@ class Profile extends Component {
     }
    
     
-
     getEmail = () => {
         const id = JSON.parse(localStorage.getItem("id"));
         API.getEmailAddress(id)
@@ -97,12 +96,13 @@ class Profile extends Component {
 
         render() {
             return (
-                <div>
-                    <div>Profile Details</div>
-                    <div>Email Address: {this.state.email} </div>
-                    <div>Purchased Flights:</div>
+                <div className="profile-container">
+                    <div className="profile-head">PROFILE DETAILS</div>
+                    <div className="profile-titles">EMAIL ADDRESS:</div> 
+                        <div>{this.state.email} </div>
+                    <div className="profile-titles">PURCHASED FLIGHTS:</div>
+                        <div className="flight-info">
                         {this.state.flights.map(flight => {
-
                             if (flight.purchased === true) {
                                 return (
                                     <div>
@@ -129,9 +129,11 @@ class Profile extends Component {
                             }
                         })}
                     <hr></hr>
-                    <div>Wish List:</div>
-                    {this.state.flights.map(flight => {
+                    </div>
 
+                    <div>Wish List:</div>
+                    <div className="wish-flight-info">
+                        {this.state.flights.map(flight => {
                             if (flight.purchased === false) {
                                 return (
                                     <div>
@@ -148,19 +150,13 @@ class Profile extends Component {
                                             returnDepartureTime={flight.returnDepartureTime}
                                             returnDepartureDate={flight.returnDepartureDate}
                                         />
-                                        <Button
-                                            title="PURCHASE FLIGHT"
-                                            click={() => this.purchaseFromWishList(flight.id)}
-                                        />
-                                        <Button
-                                            title="REMOVE FROM WISH LIST"
-                                            click={() => this.removeFromWishList(flight.id)}
-                                        />
+                                        <Button title="PURCHASE FLIGHT" click={() => this.purchaseFromWishList(flight.id)}/>
+                                        <Button title="REMOVE FROM WISH LIST" click={() => this.removeFromWishList(flight.id)}/>
                                     </div>
-                                );
-                                
+                                );  
                             }
                         })}
+                    </div>
                 </div>
             )
         }
