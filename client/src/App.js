@@ -7,8 +7,6 @@ import Profile from "./pages/profile";
 import SideBar from "./components/SideBar/SideBar";
 import Layout from "./components/Layout";
 import Carousel from "./components/Carousel";
-import Nav from "./components/Nav";
-import Jumbotron from './components/Jumbotron';
 import API from './utils/API';
 
 class App extends React.Component {
@@ -36,9 +34,7 @@ class App extends React.Component {
   }
 
   loginCheck = ()=>{
-    // console.log(this.state.login);
     if(localStorage.getItem("id")!== null && this.state.login === false){
-      // console.log(this.state.login)
       this.setState({backToLogin:null});
       this.setState({login:true})
       this.flights(JSON.parse(localStorage.getItem("id")))
@@ -48,7 +44,6 @@ class App extends React.Component {
   logout = ()=>{
     localStorage.clear();
     this.redirect();
-    
     this.setState({userFlights:[]});
     this.setState({login: false});
   }
@@ -62,7 +57,6 @@ class App extends React.Component {
           API.getMyList(response.data[0].Flights[i].id).then(response =>{
             usersFlightArray.push(response.data)
             this.setState({userFlights:usersFlightArray})
-            // console.log(this.state.userFlights)
           })
         }
       }
@@ -123,13 +117,11 @@ class App extends React.Component {
         <Layout layout="right"> 
           {this.state.userFlights.map(flight =>{
             if(flight[0].purchased === true ){
-            // console.log(flight[0].PackingLists[0].id)
               return (
                 <div>
                   <div className="flights-on-right" key={flight[0].id}>{flight[0].arrivalCity.replace(/_/g," ")} to {flight[0].departureCity.replace(/_/g," ")}</div>
                     {flight[0].PackingLists.length>0?
                     flight[0].PackingLists.map(item =>{
-                    // console.log(item);
                       return (
                         <div>
                           <p key={item.id}>{item.items}</p> <button onClick={()=>this.deleteFromList(item.id)}>REMOVE</button>

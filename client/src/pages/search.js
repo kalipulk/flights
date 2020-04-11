@@ -3,7 +3,6 @@ import SearchResults from "../components/SearchResults";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
-import Button from "../components/Button"
 import API from "../utils/API";
 import { set } from "date-fns";
 import { da } from "date-fns/locale";
@@ -26,8 +25,6 @@ class Search extends Component {
         searchList:[],
         searchDone:false
     }
-    
-
     handleDepartureDateChange = date => {
         this.setState({
             departureDate: date,
@@ -51,7 +48,6 @@ class Search extends Component {
         });
     };
     email = data =>{
-        // console.log(data)
         API.sendEmail(data).then(response =>{
             console.log(response);
         })
@@ -73,11 +69,9 @@ class Search extends Component {
             UserId: JSON.parse(localStorage.getItem("id"))
 
         }
-        // console.log(purchasedFlights);
-        API.buyFLight(purchasedFlights).then(response=>{
-            console.log("test");
-           this.setState({searchDone:false});
         
+        API.buyFLight(purchasedFlights).then(response=>{
+           this.setState({searchDone:false});
            emailData.arrivalCity=response.data.arrivalCity;
            emailData.departureCity=response.data.departureCity;
            emailData.arrivalAirport=response.data.arrivalAirport;
@@ -86,8 +80,6 @@ class Search extends Component {
            emailData.departureDate=response.data.departureDate;
            emailData.departureTime=response.data.departureTime;
         
-         
-         
         }).then(API.getEmailAddress(JSON.parse(localStorage.getItem("id"))).then(response=>{
             
             emailData.email=response.data.email
@@ -113,7 +105,6 @@ class Search extends Component {
             UserId: JSON.parse(localStorage.getItem("id"))
 
         }
-        // console.log(purchasedFlights);
         API.buyFLight(wishListFlights).then(response=>{
            this.setState({searchDone:false});
            
@@ -123,13 +114,11 @@ class Search extends Component {
         event.preventDefault();
        const departure = this.state.departure.replace(/ /g,"_");
        const destination = this.state.destination.replace(/ /g,"_");
-    //    console.log(departure +" "+ destination); 
         API.flightSearch(departure, destination,this.state.convDepartureDate,this.state.convReturnDate).
         then(response => {
-           
             this.setState({searchList:[response.data[0]]});
             this.setState({searchDone:true});
-            console.log(this.state.searchList);
+            
         })
     };
     
@@ -141,10 +130,9 @@ class Search extends Component {
             {this.state.searchDone?
             
             this.state.searchList.map(search =>{
-                // console.log(search);
+                
                 return (
                 <SearchResults 
-                    
                     key={search.id}
                     purchaseFlight={this.buyFlights}
                     wishList={this.wishList}
