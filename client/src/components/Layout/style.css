@@ -15,3 +15,8 @@
 .leftOpen {
     border-right: 1px solid #666;
 }
+
+.flights-on-right {
+    font-family: 'Poiret One', cursive;
+    font-size: 20px;
+}
