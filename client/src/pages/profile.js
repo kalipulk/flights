@@ -115,8 +115,6 @@ class Profile extends Component {
 
                                             item={this.state.item}/>
 
-                                            item={this.state.item}
-                                        />
                                         <hr></hr>
                                         <br></br>
 
