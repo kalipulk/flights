@@ -1,10 +1,11 @@
 div {
-  font-family: 'Montserrat', sans-serif;
-  color: #006372;
+  /* font-family: 'Montserrat', sans-serif;
+  color: #006372; */
 }
 
 :root {
   font-family: 'Montserrat', sans-serif;
+  color: #006372;
   --landscape-width: 25;
   --portrait-width: 80vw;
   --header-height: 4rem;
@@ -12,6 +13,7 @@ div {
   --bg-left: #ffffff;
   --bg-right:#ffffff;
   --bg-main: #fff; 
+  margin-bottom: 50px;
 }
 
 body {

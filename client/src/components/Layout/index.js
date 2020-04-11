@@ -57,7 +57,7 @@ class Layout extends Component {
                                 </div>
                             </div>
                             <div className='content'>
-                                <div>Purchased Flights</div><br/>
+                                <div>Purchased Flights</div>
                                 {this.props.children}
                             </div>
                         </div> 

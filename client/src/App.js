@@ -86,14 +86,16 @@ class App extends React.Component {
   
     return (
     <Router>
-     
+      <Jumbotron />
+
       <div id='layout'>
         <Layout layout="left"/>
 
         <div id='main'>
 
           <div className='header'>
-            <div className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}> MAIN SITE HEADER </div>
+            <div className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}> 
+            </div>
           </div>
           <div className='content'>            
             <Switch>
@@ -117,15 +119,15 @@ class App extends React.Component {
             if(flight[0].purchased === true ){
               return (
                 <div>
-                  <h6 key={flight[0].id}>{flight[0].arrivalCity.replace(/_/g," ")} to {flight[0].departureCity.replace(/_/g," ")}</h6>
+                  <div className="flights-on-right" key={flight[0].id}>{flight[0].arrivalCity.replace(/_/g," ")} to {flight[0].departureCity.replace(/_/g," ")}</div>
                     {flight[0].PackingLists.length>0?
                     flight[0].PackingLists.map(item =>{
                       return (
                         <div>
-                          <p key={item.id}>{item.items}</p> <button onClick={()=>this.deleteFromList(item.id)}>remove</button>
+                          <p key={item.id}>{item.items}</p> <button onClick={()=>this.deleteFromList(item.id)}>REMOVE</button>
                         </div>
                       )
-                    }):<p>No Packing Items Added</p>}
+                    }):<div>NOTHING ADDED TO PACKING LIST YET</div>}
                 </div>
               )
             }

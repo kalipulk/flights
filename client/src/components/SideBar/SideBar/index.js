@@ -68,11 +68,9 @@ class Layout extends React.Component {
           <div id='main'>
               <div className='header'>
                   <div className={`title ${'left-' + leftOpen} ${'right-' + rightOpen}`}>
-                    <Jumbotron />
                   </div>
               </div>
               <div className='content'>
-                  <h3>Main content</h3><br/>
                  {this.state.flights.map((flight)=>{
                    return(
                      <div>
