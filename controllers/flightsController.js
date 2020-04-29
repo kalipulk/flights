@@ -14,6 +14,7 @@ module.exports ={
             where: { id: id },
             include: [db.Flight]
         }).then(function(response) {
+            console.log(response);
             res.json(response);
         });
     

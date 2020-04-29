@@ -116,6 +116,7 @@ class Search extends Component {
        const destination = this.state.destination.replace(/ /g,"_");
         API.flightSearch(departure, destination,this.state.convDepartureDate,this.state.convReturnDate).
         then(response => {
+            console.log(response);
             this.setState({searchList:[response.data[0]]});
             this.setState({searchDone:true});
             
@@ -143,8 +144,8 @@ class Search extends Component {
                     arrivalAirport= {search.arrivalAirport}
                     arrivalTime={search.arrivalTime}
                     departureTime={search.departureTime}
-                    departureDate={search.departureDate}
-                    returnDate={search.returnDate}
+                    departureDate={moment(search.departureDate).format("MM-DD-YYYY")}
+                    returnDate={moment(search.returnDate).format("MM-DD-YYYY")}
                     price= {search.price}
                     returnDepartureTime= {search.returnDepartureTime}
                     returnArrivalTime={search.returnArrivalTime}
@@ -190,7 +191,7 @@ class Search extends Component {
                         <DatePicker
                             selected={this.state.departureDate}
                             onChange={this.handleDepartureDateChange}
-                            dateFormat='yyyy-MM-dd'
+                            dateFormat='MM-dd-yyyy'
                             required
                         />
  
@@ -198,7 +199,7 @@ class Search extends Component {
                         <DatePicker
                             selected={this.state.returnDate}
                             onChange={this.handleReturnDateChange}
-                            dateFormat='yyyy-MM-dd'
+                            dateFormat='MM-dd-yyyy'
                             required
                         />
                         </div>
