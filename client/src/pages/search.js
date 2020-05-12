@@ -133,7 +133,7 @@ class Search extends Component {
             {this.state.searchDone?
             
             this.state.searchList.map(search =>{
-                
+                console.log(search);
                 return (
                 <SearchResults 
                     key={search.id}

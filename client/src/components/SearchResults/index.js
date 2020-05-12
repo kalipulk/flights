@@ -15,6 +15,10 @@ function SearchResults (props){
                 <div className="text-details">Arriving At:</div> 
                     <div>{props.arrivalAirport}</div>
             </div> 
+            <div className="price">
+                <div className="text-details">Price:</div>
+                <div>{props.price}</div>
+            </div>
 
             <div className="date-time">
                 <div className="departing-info">
