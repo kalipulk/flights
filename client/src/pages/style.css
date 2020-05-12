@@ -16,6 +16,11 @@ input {
     margin-bottom: 15px;
 }
 
+.form-control {
+    margin: 10px;
+    padding: 10px;
+}
+
 button {
     border-radius: 3px;
     border: solid #666 1px;
@@ -35,13 +40,16 @@ button:hover {
 }
 
 /* SIGN UP CSS */
-#sign-up-head {
-    margin: auto;
-}
 
-#sign-up-head {
+.sign-up-container {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+.sign-up-header {
     font-family: 'Poiret One', cursive;
-    font-size: 28px
+    font-size: 20px;
+    width: 100%;
 }
 
 .signup-Button {

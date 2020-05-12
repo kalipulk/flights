@@ -136,10 +136,6 @@ class Profile extends Component {
 
                     <div className="wish-list-head">WISH LIST:</div>
                     <div className="wish-flight-info">
-
-                    <br></br>
-                    <br></br>
-                    <h4>Wish List:</h4>
                     {this.state.flights.map(flight => {
 
                             if (flight.purchased === false) {
