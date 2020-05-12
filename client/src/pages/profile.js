@@ -23,6 +23,17 @@ class Profile extends Component {
             console.log("Added new Item")
         })
     }
+    createItemList = (id, itemList) =>{
+        console.log(id)
+        console.log(itemList.length)
+        for(let i =0; i< itemList.length;i++){
+            const listData ={
+                items:itemList[i],
+                FlightId:id
+            }
+            this.packingListAdd(listData);
+        }
+    }
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -32,11 +43,8 @@ class Profile extends Component {
       handleFormSubmit = (event, id) => {
           
         event.preventDefault();
-        const listData ={
-            items:this.state.item,
-            FlightId:id
-        }
-        this.packingListAdd(listData);
+       
+        this.createItemList(id, this.state.item.split(", "))
       };
 
     componentDidMount() {
