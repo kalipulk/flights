@@ -1,6 +1,7 @@
 .image-slide {
     background-size: cover;
     background-position: center;
+    border-radius: 5px;
     display: inline-block;
     flex-grow: inherit;
     justify-content: center;

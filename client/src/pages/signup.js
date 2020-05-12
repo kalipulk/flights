@@ -51,9 +51,10 @@ class Signup extends Component {
         }
 
         return(
-            <div id="sign-up-container">
-                <div id="sign-up-header">SIGN UP</div>
+            <div className="sign-up-container">
                 <form>
+                <div className="sign-up-header">SIGN UP</div>
+
                     <div className="form-group">
                         <input
                             className="form-control"

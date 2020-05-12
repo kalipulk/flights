@@ -51,7 +51,7 @@ function SearchResults (props){
             <div className="text-details">Flight Time:</div>
             <div> {props.flightTime}</div>
 
-            <button onClick= {()=>props.purchaseFlight(props.allData)} className="searchBtn">BUT TICKET</button>
+            <button onClick= {()=>props.purchaseFlight(props.allData)} className="searchBtn">BUY TICKET</button>
             <button onClick= {()=>props.wishList(props.allData)} className="searchBtn">SAVE FOR LATER</button> 
         </div>
 
