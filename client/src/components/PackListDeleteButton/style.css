@@ -1,0 +1,22 @@
+.packedItemDeleteButton{
+    width:35px;
+    height: 15px;
+    font-size: 10px;
+    text-align:center;
+    padding: 0px;
+    margin-right: 58%;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    float: right;
+    font-weight:1500px;
+    
+
+}
+.packedItem{
+    font-size: 15px;
+    margin-right: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width:30%;
+    display: inline-block;
+}

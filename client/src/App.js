@@ -8,6 +8,7 @@ import SideBar from "./components/SideBar/SideBar";
 import Layout from "./components/Layout";
 import Jumbotron from "./components/Jumbotron";
 import Carousel from "./components/Carousel";
+import PackListDeleteButton from "./components/PackListDeleteButton";
 import API from './utils/API';
 
 class App extends React.Component {
@@ -123,9 +124,10 @@ class App extends React.Component {
                   <div className="flights-on-right" key={flight[0].id}>{flight[0].arrivalCity.replace(/_/g," ")} to {flight[0].departureCity.replace(/_/g," ")}</div>
                     {flight[0].PackingLists.length>0?
                     flight[0].PackingLists.map(item =>{
+                      console.log(item)
                       return (
                         <div>
-                          <p key={item.id}>{item.items}</p> <button onClick={()=>this.deleteFromList(item.id)}>REMOVE</button>
+                          <p class ="packedItem" key={item.id}>{item.items}</p> <PackListDeleteButton  delete = {()=>this.deleteFromList(item.id)}></PackListDeleteButton>
                         </div>
                       )
                     }):<div>NOTHING ADDED TO PACKING LIST YET</div>}
