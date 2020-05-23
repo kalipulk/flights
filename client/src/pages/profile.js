@@ -5,6 +5,7 @@ import PurchasedResults from "../components/PurchasedResults";
 import PackingListForm from "../components/PackingListForm";
 import Button from "../components/Button";
 import API from "../utils/API";
+import moment from "moment";
 
 class Profile extends Component {
     constructor(props){
@@ -111,10 +112,10 @@ class Profile extends Component {
                                             arrivalCity={flight.arrivalCity.replace(/_/g," ")}
                                             arrivalAirport={flight.arrivalAirport}
                                             price={flight.price}
-                                            departureDate={flight.departureDate}
+                                            departureDate={moment(flight.departureDate).format("MM-DD-YYYY")}
                                             departureTime={flight.departureTime}
                                             returnDepartureTime={flight.returnDepartureTime}
-                                            returnDepartureDate={flight.returnDepartureDate}
+                                            returnDepartureDate={moment(flight.returnDepartureDate).format("MM-DD-YYYY")}
                                         />
                                         <PackingListForm
                                             id={flight.id}
