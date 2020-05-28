@@ -7,7 +7,7 @@ function PackingListForm (props){
           <div className="form-group">
             <div>
               <label htmlFor="Query" className="item-label">
-                Packing List For This Trip
+                Packing List For This Trip:
               </label>
             </div>
             <div >
@@ -17,7 +17,7 @@ function PackingListForm (props){
                 id="Item"
                 type="text"
                 value={props.item}
-                placeholder="sunglasses, swimsuit"
+                placeholder="ex: sunglasses, swimsuit"
                 name="item"
                 onChange={props.handleInputChange}
                 required

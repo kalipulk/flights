@@ -163,7 +163,7 @@ class Search extends Component {
                 :<form>
                 <div className="search-form-group">
                     <div className="city-section">
-                        <div className="text-title">ORIGIN:</div>
+                        <div className="text-title">Departure City:</div>
                             <input
                                 className="form-control"
                                 id="departure"
@@ -174,8 +174,7 @@ class Search extends Component {
                                 onChange={this.handleInputChange}
                                 required
                             />
-                    
-                        <div className="text-title">DESTINATION:</div>
+                        <div className="text-title">Destination:</div>
                             <input
                                 className="form-control"
                                 id="destination"
@@ -189,7 +188,7 @@ class Search extends Component {
                     </div>
 
                     <div className="date-section">
-                        <div className="text-title">DEPARTURE DATE:</div>
+                        <div className="text-title">Departure Date:</div>
                         <DatePicker
                             selected={this.state.departureDate}
                             onChange={this.handleDepartureDateChange}
@@ -197,7 +196,7 @@ class Search extends Component {
                             required
                         />
  
-                        <div className="text-title">RETURN DATE:</div>
+                        <div className="text-title">Return Date:</div>
                         <DatePicker
                             selected={this.state.returnDate}
                             onChange={this.handleReturnDateChange}
@@ -210,7 +209,7 @@ class Search extends Component {
                 <div className="pull-right">
 
                     <button onClick={this.handleFormSubmit} type="submit"  className="btn btn-lg btn-primary float-right">
-                        SEARCH
+                        Search
                     </button>
 
                 </div>

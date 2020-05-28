@@ -136,7 +136,7 @@ class App extends React.Component {
                           </div>
                         </div>
                       )
-                    }):<div class="dropdown-content">NOTHING ADDED TO PACKING LIST YET</div>}
+                    }):<div class="dropdown-content">Nothing Added To Packing List Yet</div>}
                     </div>
                     </div>
                 </div>
@@ -144,7 +144,7 @@ class App extends React.Component {
             }
           })}
 
-          <button onClick ={()=>this.logout()}>LOG OUT</button> 
+          <button onClick ={()=>this.logout()}>Log Out</button> 
         </Layout>  
         :
         <Layout layout="right" />
