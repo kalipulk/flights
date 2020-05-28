@@ -7,17 +7,17 @@ function PackingListForm (props){
           <div className="form-group">
             <div>
               <label htmlFor="Query" className="item-label">
-                PACKING LIST FOR THIS TRIP
+                Packing List For This Trip
               </label>
             </div>
             <div >
-              <input
+              <input class="enter-item"
                 className="form-control"
                 className="item-input"
                 id="Item"
                 type="text"
                 value={props.item}
-                placeholder="Packing Item"
+                placeholder="sunglasses, swimsuit"
                 name="item"
                 onChange={props.handleInputChange}
                 required
@@ -26,7 +26,7 @@ function PackingListForm (props){
           </div>
         <div className="pull-right">
           <button onClick = {(events)=>props.handleFormSubmit(events, props.id)} type="submit">
-            ADD TO PACKING LIST
+            Add To Packing List
           </button>
         </div>
       </div>

@@ -131,8 +131,9 @@ class App extends React.Component {
                       console.log(item)
                       return (
                         <div>
-                          
-                          <p class ="packedItem" key={item.id}>{item.items}</p> <PackListDeleteButton delete = {()=>this.deleteFromList(item.id)}></PackListDeleteButton>
+                          <div class="packedItemBox">
+                            <p class ="packedItem" key={item.id}>{item.items}</p> <PackListDeleteButton delete = {()=>this.deleteFromList(item.id)}></PackListDeleteButton>
+                          </div>
                         </div>
                       )
                     }):<div class="dropdown-content">NOTHING ADDED TO PACKING LIST YET</div>}
