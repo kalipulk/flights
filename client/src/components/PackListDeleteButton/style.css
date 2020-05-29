@@ -1,0 +1,48 @@
+.packedItemDeleteButton{
+    width:35px;
+    height: 15px;
+    font-size: 10px;
+    text-align:center;
+    padding: 0px;
+    margin-top: 5px;
+    float: right;
+    font-weight:1500px;
+    
+
+}
+.packedItem{
+    font-size: 15px;
+    margin-right: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width:70%;
+    display: inline-block;
+   
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    
+    
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .packedItemBox{
+   
+    border-bottom: 2px inset #00a16c;
+
+  }

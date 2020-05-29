@@ -15,6 +15,11 @@ input {
     padding: 10px;
     margin-bottom: 15px;
 }
+.item-input{
+    width:18%;
+    text-align: center;
+    margin-top: 15px;
+}
 
 .form-control {
     margin: 10px;
@@ -26,7 +31,6 @@ button {
     border: solid #666 1px;
     font-family: 'Poiret One', cursive;
     font-size: 18px;
-    /* float: right; */
     background-color: #00a16c;
     color: #fff;
     padding: 10px;
